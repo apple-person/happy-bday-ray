@@ -15,7 +15,12 @@ sprite_sheet = spritesheet.SpriteSheet(sprite_sheet_image)
 BG = (50, 50, 50)
 BLACK = (0, 0, 0)
 
-
+henrySprites = {
+	walk_left = [];
+	walk_right = [];
+	walk_up = [];
+	walk_down = [];
+}
 frame_0 = sprite_sheet.get_image(0, 24, 24, 3, BLACK)
 frame_1 = sprite_sheet.get_image(1, 24, 24, 3, BLACK)
 frame_2 = sprite_sheet.get_image(2, 24, 24, 3, BLACK)
