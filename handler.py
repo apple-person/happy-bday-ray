@@ -15,7 +15,7 @@ sprite_sheet = spritesheet.SpriteSheet(sprite_sheet_image)
 BG = (50, 50, 50)
 BLACK = (0, 0, 0)
 
-henrySprites = load_henry_sprites(sprite_sheet, 24, 24, 3, BLACK)
+henrySprites = load_henry_sprites("spritesheets/characters/henry_spritesheet.png", 128, 128, 3, BLACK)
 
 run = True
 while run:
