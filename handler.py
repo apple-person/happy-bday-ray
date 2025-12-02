@@ -15,16 +15,7 @@ sprite_sheet = spritesheet.SpriteSheet(sprite_sheet_image)
 BG = (50, 50, 50)
 BLACK = (0, 0, 0)
 
-henrySprites = {
-	walk_left = [];
-	walk_right = [];
-	walk_up = [];
-	walk_down = [];
-}
-frame_0 = sprite_sheet.get_image(0, 24, 24, 3, BLACK)
-frame_1 = sprite_sheet.get_image(1, 24, 24, 3, BLACK)
-frame_2 = sprite_sheet.get_image(2, 24, 24, 3, BLACK)
-frame_3 = sprite_sheet.get_image(3, 24, 24, 3, BLACK)
+henrySprites = load_henry_sprites(sprite_sheet, 24, 24, 3, BLACK)
 
 run = True
 while run:
@@ -33,10 +24,10 @@ while run:
 	screen.fill(BG)
 
 	#show frame image
-	screen.blit(frame_0, (0, 0))
-	screen.blit(frame_1, (72, 0))
-	screen.blit(frame_2, (150, 0))
-	screen.blit(frame_3, (250, 0))
+	screen.blit(henrySprites['walk_down'][0], (0, 0))
+	screen.blit(henrySprites['walk_down'][1], (72, 0))
+	screen.blit(henrySprites['walk_down'][2], (150, 0))
+	screen.blit(henrySprites['walk_down'][3], (250, 0))
 
 	#event handler
 	for event in pygame.event.get():
