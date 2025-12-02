@@ -12,9 +12,6 @@ class SpriteSheet():
 
 		return image
 
-
-import pygame
-
 def load_moving_sprites(sprite_sheet, frame_width, frame_height, scale, color_key):
     moving_sprites = {
         'walk_left': [],
@@ -23,22 +20,27 @@ def load_moving_sprites(sprite_sheet, frame_width, frame_height, scale, color_ke
         'walk_down': []
     }
     
-    # Frames 0-3: Walk down
-    for i in range(4):
-        frame = sprite_sheet.get_image(i, frame_width, frame_height, scale, color_key)
-        moving_sprites['walk_down'].append(frame)
-    
-    # Frames 4-7: Walk up
-    for i in range(4, 8):
-        frame = sprite_sheet.get_image(i, frame_width, frame_height, scale, color_key)
-        moving_sprites['walk_up'].append(frame)
-    
-    # Frames 8-11: Walk right (and create flipped left versions)
-    for i in range(8, 12):
-        frame = sprite_sheet.get_image(i, frame_width, frame_height, scale, color_key)
-        moving_sprites['walk_right'].append(frame)
+    def create_animation_sequence(row_start_index):
+        feet_together = sprite_sheet.get_image(row_start_index, frame_width, frame_height, scale, color_key)
+        frame2 = sprite_sheet.get_image(row_start_index + 1, frame_width, frame_height, scale, color_key)
+        frame3 = sprite_sheet.get_image(row_start_index + 2, frame_width, frame_height, scale, color_key)
         
-        # Create flipped version for walk_left
+        # Create sequence: feet_together -> frame2 -> feet_together -> frame3
+        return [feet_together, frame2, feet_together, frame3]
+    
+    # Row 0 (frames 0-2): Walk down
+    moving_sprites['walk_down'] = create_animation_sequence(0)
+    
+    # Row 1 (frames 3-5): Walk up  
+    moving_sprites['walk_up'] = create_animation_sequence(3)
+    
+    # Row 2 (frames 6-8): Walk right and create flipped left versions
+    right_frames = create_animation_sequence(6)
+    moving_sprites['walk_right'] = right_frames
+    
+    # Create flipped versions for walk_left
+    moving_sprites['walk_left'] = []
+    for frame in right_frames:
         flipped_frame = pygame.transform.flip(frame, True, False)  # Flip horizontally
         moving_sprites['walk_left'].append(flipped_frame)
     
