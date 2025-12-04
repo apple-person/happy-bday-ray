@@ -1,1 +1,4 @@
+CollisionShape2D
+CharacterBody2D
+Camera2D
 AnimatedSprite2D

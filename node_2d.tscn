@@ -1,6 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://mumltbjr2v42"]
+[gd_scene load_steps=13 format=3 uid="uid://mumltbjr2v42"]
 
 [ext_resource type="Texture2D" uid="uid://ep0jwviwyn56" path="res://spritesheets/characters/henry_spritesheet.png" id="1_wtcfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtcfe"]
+size = Vector2(67.5, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0e48y"]
 atlas = ExtResource("1_wtcfe")
@@ -99,8 +102,17 @@ animations = [{
 
 [node name="Node2D" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(3465.0002, 1091)
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+z_index = 1
+shape = SubResource("RectangleShape2D_wtcfe")
+debug_color = Color(0.5189644, 0.47435588, 0.8509103, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(2, -27)
 scale = Vector2(1.1093757, 1.1093757)
 sprite_frames = SubResource("SpriteFrames_hqns4")
-animation = &"new_animation_2"
+animation = &"new_animation"
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D/AnimatedSprite2D"]
