@@ -1,4 +1,7 @@
 CollisionShape2D
+StaticBody2D
+RemoteTransform2D
+TextureRect
 CharacterBody2D
 Camera2D
 AnimatedSprite2D
