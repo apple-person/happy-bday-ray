@@ -1,50 +1,49 @@
-[gd_scene load_steps=18 format=3 uid="uid://mumltbjr2v42"]
+[gd_scene load_steps=17 format=3 uid="uid://dtv6rh8epknlu"]
 
-[ext_resource type="Script" uid="uid://dvrng6n5eubhf" path="res://henry_movement.gd" id="1_0e48y"]
-[ext_resource type="Script" uid="uid://sjq14fqwqmcq" path="res://gift_handler.gd" id="1_0hol4"]
-[ext_resource type="Texture2D" uid="uid://bu7avuf7o628m" path="res://spritesheets/textures/grass_texture.png" id="1_epypp"]
-[ext_resource type="Texture2D" uid="uid://ep0jwviwyn56" path="res://spritesheets/characters/henry_spritesheet.png" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://c0ndmfj6rspo8" path="res://spritesheets/textures/house_tile.png" id="1_6syyc"]
+[ext_resource type="Script" uid="uid://dvrng6n5eubhf" path="res://henry_movement.gd" id="2_o1325"]
+[ext_resource type="Texture2D" uid="uid://ep0jwviwyn56" path="res://spritesheets/characters/henry_spritesheet.png" id="3_vy7fe"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtcfe"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10qhy"]
 size = Vector2(122, 186)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0e48y"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("3_vy7fe")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("3_vy7fe")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("3_vy7fe")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rj586"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("3_vy7fe")
 region = Rect2(0, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4d7sh"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("3_vy7fe")
 region = Rect2(128, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ir8iy"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("3_vy7fe")
 region = Rect2(256, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6r6c"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("3_vy7fe")
 region = Rect2(0, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("3_vy7fe")
 region = Rect2(128, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d21ai"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("3_vy7fe")
 region = Rect2(256, 128, 128, 128)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_hqns4"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_2y50f"]
 animations = [{
 "frames": [],
 "loop": true,
@@ -103,63 +102,80 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
-size = Vector2(135.5, 2016)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obbqb"]
+size = Vector2(124.75, 1229)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
-size = Vector2(3013.5, 138)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjvky"]
+size = Vector2(2019.375, 138)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_0hol4")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -1383.0
-offset_top = -969.0
-offset_right = 1407.0
-offset_bottom = 1088.0
-texture = ExtResource("1_epypp")
+offset_right = 1344.0
+offset_bottom = 640.0
+texture = ExtResource("1_6syyc")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_top = 640.0
+offset_right = 576.0
+offset_bottom = 1152.0
+texture = ExtResource("1_6syyc")
 stretch_mode = 1
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_0e48y")
+position = Vector2(639, 1363)
+script = ExtResource("2_o1325")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 z_index = 1
-position = Vector2(42, -29)
-shape = SubResource("RectangleShape2D_wtcfe")
+position = Vector2(-326, -330)
+shape = SubResource("RectangleShape2D_10qhy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(47, -22)
+position = Vector2(-319, -328)
 scale = Vector2(1.726563, 1.726563)
-sprite_frames = SubResource("SpriteFrames_hqns4")
+sprite_frames = SubResource("SpriteFrames_2y50f")
 animation = &"down"
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D"]
+position = Vector2(582, -1031)
+scale = Vector2(2, 2)
 remote_path = NodePath("../../Camera2D")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-limit_left = -1300
-limit_top = -900
-limit_right = 1325
-limit_bottom = 1000
-editor_draw_limits = true
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 640)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1385, 43)
-shape = SubResource("RectangleShape2D_epypp")
+position = Vector2(-63, -35)
+shape = SubResource("RectangleShape2D_obbqb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(31, -967)
-shape = SubResource("RectangleShape2D_0hol4")
+position = Vector2(671.3125, -707)
+shape = SubResource("RectangleShape2D_kjvky")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-12, 1075)
-shape = SubResource("RectangleShape2D_0hol4")
+position = Vector2(1586, 69)
+shape = SubResource("RectangleShape2D_kjvky")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1402, 61)
-shape = SubResource("RectangleShape2D_epypp")
+position = Vector2(1407.375, -359)
+shape = SubResource("RectangleShape2D_obbqb")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(768, 581)
+shape = SubResource("RectangleShape2D_kjvky")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(639, 723)
+shape = SubResource("RectangleShape2D_obbqb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(504, 548)
+scale = Vector2(2, 2)
+zoom = Vector2(0.56, 0.56)
+limit_left = 0
+limit_top = -1
+limit_right = 1344
+limit_bottom = 1147
+editor_draw_limits = true
