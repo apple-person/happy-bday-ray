@@ -1,47 +1,47 @@
 [gd_scene load_steps=18 format=3 uid="uid://mumltbjr2v42"]
 
-[ext_resource type="Script" uid="uid://dvrng6n5eubhf" path="res://henry_movement.gd" id="1_0e48y"]
-[ext_resource type="Script" uid="uid://sjq14fqwqmcq" path="res://gift_handler.gd" id="1_0hol4"]
-[ext_resource type="Texture2D" uid="uid://bu7avuf7o628m" path="res://spritesheets/textures/grass_texture.png" id="1_epypp"]
-[ext_resource type="Texture2D" uid="uid://ep0jwviwyn56" path="res://spritesheets/characters/henry_spritesheet.png" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://sjq14fqwqmcq" path="res://gift_handler.gd" id="1_4vge2"]
+[ext_resource type="Texture2D" uid="uid://bu7avuf7o628m" path="res://spritesheets/textures/grass_texture.png" id="2_04qyp"]
+[ext_resource type="Script" uid="uid://dvrng6n5eubhf" path="res://henry_movement.gd" id="3_j7wrs"]
+[ext_resource type="Texture2D" uid="uid://ep0jwviwyn56" path="res://spritesheets/characters/henry_spritesheet.png" id="4_fws66"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtcfe"]
 size = Vector2(122, 186)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0e48y"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("4_fws66")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("4_fws66")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("4_fws66")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rj586"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("4_fws66")
 region = Rect2(0, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4d7sh"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("4_fws66")
 region = Rect2(128, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ir8iy"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("4_fws66")
 region = Rect2(256, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6r6c"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("4_fws66")
 region = Rect2(0, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("4_fws66")
 region = Rect2(128, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d21ai"]
-atlas = ExtResource("1_wtcfe")
+atlas = ExtResource("4_fws66")
 region = Rect2(256, 128, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqns4"]
@@ -110,18 +110,18 @@ size = Vector2(135.5, 2016)
 size = Vector2(3013.5, 138)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_0hol4")
+script = ExtResource("1_4vge2")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -1383.0
 offset_top = -969.0
 offset_right = 1407.0
 offset_bottom = 1088.0
-texture = ExtResource("1_epypp")
+texture = ExtResource("2_04qyp")
 stretch_mode = 1
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_0e48y")
+script = ExtResource("3_j7wrs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 z_index = 1

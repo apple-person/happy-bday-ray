@@ -1,1 +1,7 @@
-res://house.tscn
+res://scenes/node_2d.tscn
+res://day_1_dialog.gd
+res://gift_handler.gd
+res://henry_movement.gd
+res://scenes/house.tscn
+res://actionable.tscn
+res://actionable.gd
