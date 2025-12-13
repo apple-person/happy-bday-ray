@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dtv6rh8epknlu"]
+[gd_scene load_steps=18 format=3 uid="uid://dtv6rh8epknlu"]
 
 [ext_resource type="Texture2D" uid="uid://c0ndmfj6rspo8" path="res://spritesheets/textures/house_tile.png" id="1_6syyc"]
 [ext_resource type="Script" uid="uid://dvrng6n5eubhf" path="res://henry_movement.gd" id="2_o1325"]
 [ext_resource type="Texture2D" uid="uid://ep0jwviwyn56" path="res://spritesheets/characters/henry_spritesheet.png" id="3_vy7fe"]
+[ext_resource type="Script" uid="uid://bgbpl41hghx5o" path="res://day_1_dialog.gd" id="4_o1325"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10qhy"]
 size = Vector2(122, 186)
@@ -171,7 +172,7 @@ position = Vector2(639, 723)
 shape = SubResource("RectangleShape2D_obbqb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(504, 548)
+position = Vector2(1221, 332)
 scale = Vector2(2, 2)
 zoom = Vector2(0.56, 0.56)
 limit_left = 0
@@ -179,3 +180,4 @@ limit_top = -1
 limit_right = 1344
 limit_bottom = 1147
 editor_draw_limits = true
+script = ExtResource("4_o1325")
