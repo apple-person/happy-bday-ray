@@ -8,6 +8,46 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	pass # Replace with function body.
 
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var marker: Marker2D = $Direction
+
+
+var current_anim: String = ""
+
+func _play_animation(anim_name: String):
+	if anim_name == "" or current_anim == anim_name:
+		return
+
+	current_anim = anim_name
+	anim_player.play(anim_name)
+
+func _play_walk_animation():
+	var anim := ""
+
+	# Horizontal has priority
+	if velocity.x > 0:
+		anim = "right_walk"
+	elif velocity.x < 0:
+		anim = "left_walk"
+	elif velocity.y > 0:
+		anim = "down_walk"
+	elif velocity.y < 0:
+		anim = "up_walk"
+
+	_play_animation(anim)
+
+func _play_idle_animation():
+	var anim := ""
+
+	if abs(velocity.x) > abs(velocity.y):
+		anim = "right_idle"
+	elif velocity.y > 0:
+		anim = "down_idle"
+	else:
+		anim = "up_idle"
+
+	_play_animation(anim)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -20,22 +60,13 @@ func _physics_process(delta: float) -> void:
 		velocity.y += 1
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= 1
-
+	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		$AnimatedSprite2D.play()
+		position += velocity * delta
+		_play_walk_animation()
 	else:
-		$AnimatedSprite2D.stop()
-	position += velocity * delta
+		_play_idle_animation()
 
-	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "right"
-		$AnimatedSprite2D.flip_v = false
-		# See the note below about the following boolean assignment.
-		$AnimatedSprite2D.flip_h = velocity.x < 0
-	elif velocity.y > 0:
-		$AnimatedSprite2D.animation = "down"
-	elif velocity.y < 0:
-		$AnimatedSprite2D.animation = "up"
 		
 	move_and_slide()

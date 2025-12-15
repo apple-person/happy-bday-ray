@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://bjiwxnu4ivtuk" path="res://actionable.gd" id="1_7bh53"]
 
 [node name="Actionable" type="Area2D"]
+collision_layer = 16
 script = ExtResource("1_7bh53")
