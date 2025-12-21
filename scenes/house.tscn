@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtv6rh8epknlu"]
+[gd_scene load_steps=15 format=3 uid="uid://dtv6rh8epknlu"]
 
 [ext_resource type="Texture2D" uid="uid://pm5a6v7xfctj" path="res://spritesheets/textures/house_tile (1).png" id="1_3bgk5"]
 [ext_resource type="Texture2D" uid="uid://cjp4snote6bnu" path="res://spritesheets/characters/ray.png" id="3_3bgk5"]
 [ext_resource type="PackedScene" uid="uid://bcpmxgkdw2qag" path="res://actionable.tscn" id="4_f74lx"]
 [ext_resource type="Script" uid="uid://bgbpl41hghx5o" path="res://day_1_dialog.gd" id="4_o1325"]
+[ext_resource type="Resource" uid="uid://cx5mrx8sgp5qq" path="res://dialogue/first_meeting.dialogue" id="5_f74lx"]
 [ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://henry.tscn" id="5_ptc3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obbqb"]
@@ -104,7 +105,7 @@ position = Vector2(639, 658)
 shape = SubResource("RectangleShape2D_obbqb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1360, 461)
+position = Vector2(1356, 365)
 scale = Vector2(2, 2)
 zoom = Vector2(0.56, 0.56)
 limit_left = 0
@@ -115,19 +116,20 @@ editor_draw_limits = true
 script = ExtResource("4_o1325")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(313, 290)
-scale = Vector2(2, 2)
+position = Vector2(300, 288.00003)
+scale = Vector2(1.75, 1.75)
 sprite_frames = SubResource("SpriteFrames_qcuhb")
 
 [node name="Actionable" parent="AnimatedSprite2D" instance=ExtResource("4_f74lx")]
 position = Vector2(-0.5, 0)
+dialogue_resource = ExtResource("5_f74lx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Actionable"]
-position = Vector2(-2.5, 62)
+position = Vector2(-2.357143, 56.57141)
 shape = SubResource("CircleShape2D_7685u")
 
 [node name="Henry" parent="." instance=ExtResource("5_ptc3g")]
-position = Vector2(284, 898)
+position = Vector2(280, 802)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Henry"]
 position = Vector2(1076, -437)

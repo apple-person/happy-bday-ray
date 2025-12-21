@@ -1,10 +1,11 @@
 f098f8d3115d962055284dee314b4f89
-::res://::1765767606
-actionable.gd::GDScript::3036012860597351750::1765604268::0::1::::<>Area2D<><>0<>0<><>::
-actionable.tscn::PackedScene::2558534045208003038::1765604268::0::1::::<><><>0<>0<><>::uid://bjiwxnu4ivtuk::::res://actionable.gd
+::res://::1766348575
+actionable.gd::GDScript::3036012860597351750::1766348471::0::1::::<>Area2D<><>0<>0<><>::
+actionable.tscn::PackedScene::2558534045208003038::1765771242::0::1::::<><><>0<>0<><>::uid://bjiwxnu4ivtuk::::res://actionable.gd
 day_1_dialog.gd::GDScript::2810550085568243678::1765601960::0::1::::<>Camera2D<><>0<>0<><>::
 gift_handler.gd::GDScript::1282998019455096868::1765602117::0::1::::<>Node2D<><>0<>0<><>::
-henry_movement.gd::GDScript::8669123874641900247::1765604268::0::1::::<>CharacterBody2D<><>0<>0<><>::
+henry.tscn::PackedScene::3701005300766764720::1765773255::0::1::::<><><>0<>0<><>::uid://dvrng6n5eubhf::::res://henry_movement.gd<>uid://ep0jwviwyn56::::res://spritesheets/characters/henry_spritesheet.png
+henry_movement.gd::GDScript::8669123874641900247::1766348471::0::1::::<>CharacterBody2D<><>0<>0<><>::
 icon.svg::CompressedTexture2D::8394024978339513042::1764815240::1764816458::1::::<><><>0<>0<>529bc7322fa591c70c387615064a6abb<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1764904735::0::1::::<><><>0<>0<><>::
 ::res://addons/::1765600752
@@ -95,9 +96,9 @@ README.md::TextFile::-1::1764819945::0::1::::<><><>0<>0<><>::
 utils.gd::GDScript::5251015809120159908::1764819946::0::1::::<>RefCounted<><>0<>0<><>::
 ::res://dialogue/::1765601781
 first_meeting.dialogue::Resource::6449876325934400512::1765601392::1765601781::1::::<><><>0<>0<>de2ea4dc2ef7d51f2d765530968a042d<>res://.godot/imported/first_meeting.dialogue-052aa2484ef6557ba6774d9c5f460af0.tres::uid://dbs4435dsf3ry::::res://addons/dialogue_manager/dialogue_resource.gd
-::res://scenes/::1765604023
-house.tscn::PackedScene::8538115017153509310::1765604023::0::1::::<><><>0<>0<><>::uid://pm5a6v7xfctj::::res://spritesheets/textures/house_tile (1).png<>uid://dvrng6n5eubhf::::res://henry_movement.gd<>uid://ep0jwviwyn56::::res://spritesheets/characters/henry_spritesheet.png<>uid://bgbpl41hghx5o::::res://day_1_dialog.gd
-node_2d.tscn::PackedScene::884302926304915729::1765602773::0::1::::<><><>0<>0<><>::uid://sjq14fqwqmcq::::res://gift_handler.gd<>uid://bu7avuf7o628m::::res://spritesheets/textures/grass_texture.png<>uid://dvrng6n5eubhf::::res://henry_movement.gd<>uid://ep0jwviwyn56::::res://spritesheets/characters/henry_spritesheet.png
+::res://scenes/::1766348471
+house.tscn::PackedScene::8538115017153509310::1766348471::0::1::::<><><>0<>0<><>::uid://pm5a6v7xfctj::::res://spritesheets/textures/house_tile (1).png<>uid://cjp4snote6bnu::::res://spritesheets/characters/ray.png<>uid://bcpmxgkdw2qag::::res://actionable.tscn<>uid://bgbpl41hghx5o::::res://day_1_dialog.gd<>uid://cx5mrx8sgp5qq::::res://dialogue/first_meeting.dialogue<>uid://bsy2atfwo0fk7::::res://henry.tscn
+node_2d.tscn::PackedScene::884302926304915729::1765768570::0::1::::<><><>0<>0<><>::uid://sjq14fqwqmcq::::res://gift_handler.gd<>uid://bu7avuf7o628m::::res://spritesheets/textures/grass_texture.png<>uid://dvrng6n5eubhf::::res://henry_movement.gd<>uid://ep0jwviwyn56::::res://spritesheets/characters/henry_spritesheet.png
 Test.tscn::PackedScene::8099162704508995467::1764815395::0::1::::<><><>0<>0<><>::uid://ocqr4kaowgws::::res://icon.svg
 ::res://spritesheets/::1765083057
 ::res://spritesheets/characters/::1764816458
