@@ -12,3 +12,19 @@
 	: Looks well-loved.	
 - Nah => END
 => END
+
+~ blahaj
+: A cute blue shark plush!
+: Surprisingly soft to the touch...
+=> END
+
+~ cat_plush
+: A fluffy cat... 
+: Looks like a loaf...
+: Suddenly, I am tempted to buy one just for myself...
+=> END
+
+~ potted_plant
+: A potted plant...
+: If Ray likes gardening, then...
+=> END

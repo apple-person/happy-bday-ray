@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://b1wg0658cjlro"]
+
+[ext_resource type="Script" uid="uid://sjq14fqwqmcq" path="res://gift_handler.gd" id="1_dv7v5"]
+[ext_resource type="Texture2D" uid="uid://pm5a6v7xfctj" path="res://spritesheets/textures/house_tile (1).png" id="2_dv7v5"]
+[ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/henry.tscn" id="3_aa5bk"]
+[ext_resource type="Texture2D" uid="uid://d28cvq85bau0s" path="res://spritesheets/gifts/cat_plush.png" id="4_4qoey"]
+[ext_resource type="PackedScene" uid="uid://bcpmxgkdw2qag" path="res://helpers/actionable.tscn" id="5_schgl"]
+[ext_resource type="Resource" uid="uid://b517bctwbt3i0" path="res://dialogue/objects.dialogue" id="6_7rpmi"]
+[ext_resource type="Texture2D" uid="uid://cgpxsceqdi3px" path="res://spritesheets/gifts/haj_plush.png" id="7_schgl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(135.5, 2016)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(3013.5, 138)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7pf7o"]
+radius = 84.14868
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_dv7v5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -1018.0
+offset_top = -667.0
+offset_right = 1053.0
+offset_bottom = 698.0
+texture = ExtResource("2_dv7v5")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -1300
+limit_top = -900
+limit_right = 1325
+limit_bottom = 1000
+editor_draw_limits = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1051, 54)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-8, -706)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-101, 743)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1080, 69)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="Henry" parent="." instance=ExtResource("3_aa5bk")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Henry"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="cat" parent="." instance=ExtResource("5_schgl")]
+position = Vector2(235, -139)
+dialogue_resource = ExtResource("6_7rpmi")
+dialogue_start = "cat_plush"
+
+[node name="Sprite2D" type="Sprite2D" parent="cat"]
+position = Vector2(0, -6.500004)
+scale = Vector2(1.9375, 2.046875)
+texture = ExtResource("4_4qoey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cat"]
+position = Vector2(-7, 33)
+shape = SubResource("CircleShape2D_7pf7o")
+
+[node name="blahaj" parent="." instance=ExtResource("5_schgl")]
+position = Vector2(470, -278)
+dialogue_resource = ExtResource("6_7rpmi")
+dialogue_start = "aaaaaablahaj"
+
+[node name="Sprite2D" type="Sprite2D" parent="blahaj"]
+position = Vector2(-1.9999084, -1)
+scale = Vector2(3.171875, 3.3509324)
+texture = ExtResource("7_schgl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blahaj"]
+position = Vector2(-6, 32)
+shape = SubResource("CircleShape2D_7pf7o")
