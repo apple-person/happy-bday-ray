@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bsy2atfwo0fk7"]
 
-[ext_resource type="Script" uid="uid://dvrng6n5eubhf" path="res://henry_movement.gd" id="1_svdrf"]
-[ext_resource type="Texture2D" uid="uid://ep0jwviwyn56" path="res://spritesheets/characters/henry_spritesheet.png" id="2_ytur3"]
+[ext_resource type="Script" uid="uid://dvrng6n5eubhf" path="res://helpers/henry_movement.gd" id="1_jdwvl"]
+[ext_resource type="Texture2D" uid="uid://ep0jwviwyn56" path="res://spritesheets/characters/henry_spritesheet.png" id="2_xmiqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bjdr"]
 size = Vector2(122, 186)
@@ -326,10 +326,11 @@ _data = {
 }
 
 [node name="Henry" type="CharacterBody2D"]
-script = ExtResource("1_svdrf")
+script = ExtResource("1_jdwvl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_1bjdr")
 
 [node name="Direction" type="Marker2D" parent="."]
@@ -344,9 +345,9 @@ position = Vector2(4, 107)
 shape = SubResource("CircleShape2D_5i5tf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4, -0.99999994)
+position = Vector2(3.9999995, 0)
 scale = Vector2(1.75, 1.75)
-texture = ExtResource("2_ytur3")
+texture = ExtResource("2_xmiqw")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(20, 8, 80, 108)

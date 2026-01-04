@@ -1,0 +1,38 @@
+~ start
+
+if State.met_ray == false:
+	Ray: Welcome to my place!
+	Ray: Hey, you must be Henry, right?
+
+	- Yeah!!
+		Ray: Cool, cool!
+		Ray: Nice meeting you.
+		Ray: I hope you like it here.
+		
+	- ...That's right.
+		Ray: Yeah. Alright.
+		Ray: Well, nice to meet you...
+		Ray: Uh, the place isn't much, but I hope you like it.
+		
+		
+	Ray: Your room is upstairs, by the way.
+	Ray: If you need anything, just let me know.
+	
+	set State.met_ray = true
+else:
+	Ray: Hey again, settling in alright? 
+	Ray: Need something?
+	
+	- Yeah. => help
+	
+	- Not really.
+		Ray: Alright, just let me know.
+	
+=> END
+
+
+~ help
+
+Ray: Sure, what's up?
+
+=> END

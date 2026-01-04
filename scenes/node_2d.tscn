@@ -1,107 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://mumltbjr2v42"]
+[gd_scene load_steps=6 format=3 uid="uid://mumltbjr2v42"]
 
 [ext_resource type="Script" uid="uid://sjq14fqwqmcq" path="res://gift_handler.gd" id="1_4vge2"]
 [ext_resource type="Texture2D" uid="uid://bu7avuf7o628m" path="res://spritesheets/textures/grass_texture.png" id="2_04qyp"]
-[ext_resource type="Script" uid="uid://dvrng6n5eubhf" path="res://henry_movement.gd" id="3_j7wrs"]
-[ext_resource type="Texture2D" uid="uid://ep0jwviwyn56" path="res://spritesheets/characters/henry_spritesheet.png" id="4_fws66"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtcfe"]
-size = Vector2(122, 186)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0e48y"]
-atlas = ExtResource("4_fws66")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
-atlas = ExtResource("4_fws66")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
-atlas = ExtResource("4_fws66")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rj586"]
-atlas = ExtResource("4_fws66")
-region = Rect2(0, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4d7sh"]
-atlas = ExtResource("4_fws66")
-region = Rect2(128, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ir8iy"]
-atlas = ExtResource("4_fws66")
-region = Rect2(256, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q6r6c"]
-atlas = ExtResource("4_fws66")
-region = Rect2(0, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
-atlas = ExtResource("4_fws66")
-region = Rect2(128, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d21ai"]
-atlas = ExtResource("4_fws66")
-region = Rect2(256, 128, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hqns4"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0e48y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_epypp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0e48y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0hol4")
-}],
-"loop": true,
-"name": &"down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rj586")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4d7sh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rj586")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ir8iy")
-}],
-"loop": true,
-"name": &"right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q6r6c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kdubu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q6r6c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d21ai")
-}],
-"loop": true,
-"name": &"up",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/henry.tscn" id="3_rnjyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(135.5, 2016)
@@ -119,23 +20,6 @@ offset_right = 1407.0
 offset_bottom = 1088.0
 texture = ExtResource("2_04qyp")
 stretch_mode = 1
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("3_j7wrs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-z_index = 1
-position = Vector2(42, -29)
-shape = SubResource("RectangleShape2D_wtcfe")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(47, -22)
-scale = Vector2(1.726563, 1.726563)
-sprite_frames = SubResource("SpriteFrames_hqns4")
-animation = &"down"
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D"]
-remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = -1300
@@ -163,3 +47,8 @@ position = Vector2(1402, 61)
 shape = SubResource("RectangleShape2D_epypp")
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="Henry" parent="." instance=ExtResource("3_rnjyy")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Henry"]
+remote_path = NodePath("../../Camera2D")

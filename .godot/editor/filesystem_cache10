@@ -1,14 +1,10 @@
 f098f8d3115d962055284dee314b4f89
-::res://::1766348575
-actionable.gd::GDScript::3036012860597351750::1766348471::0::1::::<>Area2D<><>0<>0<><>::
-actionable.tscn::PackedScene::2558534045208003038::1765771242::0::1::::<><><>0<>0<><>::uid://bjiwxnu4ivtuk::::res://actionable.gd
-day_1_dialog.gd::GDScript::2810550085568243678::1765601960::0::1::::<>Camera2D<><>0<>0<><>::
-gift_handler.gd::GDScript::1282998019455096868::1765602117::0::1::::<>Node2D<><>0<>0<><>::
-henry.tscn::PackedScene::3701005300766764720::1765773255::0::1::::<><><>0<>0<><>::uid://dvrng6n5eubhf::::res://henry_movement.gd<>uid://ep0jwviwyn56::::res://spritesheets/characters/henry_spritesheet.png
-henry_movement.gd::GDScript::8669123874641900247::1766348471::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://::1767496965
+gift_handler.gd::GDScript::1282998019455096868::1767323332::0::1::::<>Node2D<><>0<>0<><>::
 icon.svg::CompressedTexture2D::8394024978339513042::1764815240::1764816458::1::::<><><>0<>0<>529bc7322fa591c70c387615064a6abb<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1764904735::0::1::::<><><>0<>0<><>::
-::res://addons/::1765600752
+state.gd::GDScript::1441154252795406567::1766797992::0::1::::<>Node<><>0<>0<><>::
+::res://addons/::1766367136
 ::res://addons/dialogue_manager/::1765600756
 constants.gd::GDScript::4240262336831424009::1765600755::0::1::::DMConstants<>RefCounted<><>0<>0<><>::
 dialogue_label.gd::GDScript::480611383085669467::1765600755::0::1::::DialogueLabel<>RichTextLabel<>res://addons/dialogue_manager/assets/icon.svg<>0<>1<><>::
@@ -94,19 +90,27 @@ godot_super-wakatime.gd::GDScript::6277149880384411866::1764819946::0::1::::<>Ed
 plugin.cfg::TextFile::-1::1764819946::0::1::::<><><>0<>0<><>::
 README.md::TextFile::-1::1764819945::0::1::::<><><>0<>0<><>::
 utils.gd::GDScript::5251015809120159908::1764819946::0::1::::<>RefCounted<><>0<>0<><>::
-::res://dialogue/::1765601781
-first_meeting.dialogue::Resource::6449876325934400512::1765601392::1765601781::1::::<><><>0<>0<>de2ea4dc2ef7d51f2d765530968a042d<>res://.godot/imported/first_meeting.dialogue-052aa2484ef6557ba6774d9c5f460af0.tres::uid://dbs4435dsf3ry::::res://addons/dialogue_manager/dialogue_resource.gd
-::res://scenes/::1766348471
-house.tscn::PackedScene::8538115017153509310::1766348471::0::1::::<><><>0<>0<><>::uid://pm5a6v7xfctj::::res://spritesheets/textures/house_tile (1).png<>uid://cjp4snote6bnu::::res://spritesheets/characters/ray.png<>uid://bcpmxgkdw2qag::::res://actionable.tscn<>uid://bgbpl41hghx5o::::res://day_1_dialog.gd<>uid://cx5mrx8sgp5qq::::res://dialogue/first_meeting.dialogue<>uid://bsy2atfwo0fk7::::res://henry.tscn
-node_2d.tscn::PackedScene::884302926304915729::1765768570::0::1::::<><><>0<>0<><>::uid://sjq14fqwqmcq::::res://gift_handler.gd<>uid://bu7avuf7o628m::::res://spritesheets/textures/grass_texture.png<>uid://dvrng6n5eubhf::::res://henry_movement.gd<>uid://ep0jwviwyn56::::res://spritesheets/characters/henry_spritesheet.png
+::res://dialogue/::1767325937
+day.dialogue::Resource::6449876325934400512::1767325937::1767325937::1::::<><><>0<>0<>385018f8c830bc075f4b9208d45b88af<>res://.godot/imported/day.dialogue-c214371dfacba6eb9917838e5f2a1bc2.tres::uid://dbs4435dsf3ry::::res://addons/dialogue_manager/dialogue_resource.gd
+objects.dialogue::Resource::4547704679401737793::1766802313::1766802313::1::::<><><>0<>0<>5778e13d61078a4c3b23e92ed4535d92<>res://.godot/imported/objects.dialogue-985f0ed056e6138f10b4b9c1506bc3c2.tres::uid://dbs4435dsf3ry::::res://addons/dialogue_manager/dialogue_resource.gd
+::res://helpers/::1766800541
+actionable.gd::GDScript::3036012860597351750::1766348471::0::1::::<>Area2D<><>0<>0<><>::
+actionable.tscn::PackedScene::2558534045208003038::1766364147::0::1::::<><><>0<>0<><>::uid://bjiwxnu4ivtuk::::res://helpers/actionable.gd
+henry.tscn::PackedScene::3701005300766764720::1766366847::0::1::::<><><>0<>0<><>::uid://dvrng6n5eubhf::::res://helpers/henry_movement.gd<>uid://ep0jwviwyn56::::res://spritesheets/characters/henry_spritesheet.png
+henry_movement.gd::GDScript::8669123874641900247::1766348471::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://scenes/::1766802077
+henry's_room.tscn::PackedScene::2952912874876453621::1766802077::0::1::::<><><>0<>0<><>::uid://cgqlnxq3vu1s8::::res://spritesheets/textures/house_tile (2).png<>uid://ce3ofh2smrdd3::::res://spritesheets/gifts/New Piskel (1).png<>uid://bcpmxgkdw2qag::::res://helpers/actionable.tscn<>uid://b517bctwbt3i0::::res://dialogue/objects.dialogue<>uid://bsy2atfwo0fk7::::res://helpers/henry.tscn
+house.tscn::PackedScene::8538115017153509310::1766799152::0::1::::<><><>0<>0<><>::uid://cgqlnxq3vu1s8::::res://spritesheets/textures/house_tile (2).png<>uid://cjp4snote6bnu::::res://spritesheets/characters/ray.png<>uid://bcpmxgkdw2qag::::res://helpers/actionable.tscn<>uid://cx5mrx8sgp5qq::::res://dialogue/day.dialogue<>uid://bsy2atfwo0fk7::::res://helpers/henry.tscn
+node_2d.tscn::PackedScene::884302926304915729::1766364617::0::1::::<><><>0<>0<><>::uid://sjq14fqwqmcq::::res://gift_handler.gd<>uid://bu7avuf7o628m::::res://spritesheets/textures/grass_texture.png<>uid://bsy2atfwo0fk7::::res://helpers/henry.tscn
 Test.tscn::PackedScene::8099162704508995467::1764815395::0::1::::<><><>0<>0<><>::uid://ocqr4kaowgws::::res://icon.svg
-::res://spritesheets/::1765083057
-::res://spritesheets/characters/::1764816458
+::res://spritesheets/::1766801229
+::res://spritesheets/characters/::1766801224
 henry_spritesheet.png::CompressedTexture2D::313256226175769903::1764815749::1764816458::1::::<><><>0<>0<>c7ef002e2436baad5e7481b340af3027<>res://.godot/imported/henry_spritesheet.png-d6c859a2d18437f3d947c36e63ffd1d2.ctex::
 ray.png::CompressedTexture2D::5437300268820557930::1764815749::1764816458::1::::<><><>0<>0<>a0435e36eac535f5eac9f839a6f1dc65<>res://.godot/imported/ray.png-5b54b5f3f203d51f543b3a48c1dcfd94.ctex::
-::res://spritesheets/gifts/::1765601139
+::res://spritesheets/gifts/::1766801229
 cat_plush.png::CompressedTexture2D::9122645123564256964::1765600913::1765601139::1::::<><><>0<>0<>3488829dc79044b8eec59d2cd0fb1d26<>res://.godot/imported/cat_plush.png-d30657e1a31f2430440aae23bf1acc69.ctex::
 haj_plush.png::CompressedTexture2D::5226368842606450933::1765600913::1765601139::1::::<><><>0<>0<>d711fa2676797d130bd3a830a83550b9<>res://.godot/imported/haj_plush.png-e04fdf8e2de161952be134ace4a2cdb5.ctex::
+New Piskel (1).png::CompressedTexture2D::5112258696127976022::1766801221::1766801229::1::::<><><>0<>0<>5dda0c5fdef34fb24a1ff38a623f18bd<>res://.godot/imported/New Piskel (1).png-d06700e074d0e636883137b70ede0ab3.ctex::
 potted_plant.png::CompressedTexture2D::5495336723846290049::1764904735::1764904793::1::::<><><>0<>0<>7d2a71a94a50d831da33afdf5e348440<>res://.godot/imported/potted_plant.png-267d744a22a05f3a3c3f4c9b8cfc864d.ctex::
 ::res://spritesheets/textures/::1765601139
 dark_wood_tile.png::CompressedTexture2D::6601875718029964099::1765600913::1765601139::1::::<><><>0<>0<>07190c9f3fa9b87a74b492e31486dbd8<>res://.godot/imported/dark_wood_tile.png-aff6576913fdfd7496cd574f82c334bb.ctex::

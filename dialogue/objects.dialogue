@@ -1,0 +1,14 @@
+~ box1
+: It's a few boxes that you had begun to unpack.
+=> END
+
+~ box2
+: It's a few boxes that you had begun to unpack.
+: One of the boxes is open.
+
+: Check what's inside? 
+- Sure
+	: There's a plushie in here.
+	: Looks well-loved.	
+- Nah => END
+=> END

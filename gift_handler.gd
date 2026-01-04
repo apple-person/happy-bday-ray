@@ -15,7 +15,7 @@ func evaluatePoints() -> int:
 	for key in gifts_points:
 		if gifts_inventory.has(key):
 			totalPoints += gifts_points[key]
-		#print("Key: ", key, ", Value: ", value)
+		#print("key: ", key, ", value: ", value)
 	return totalPoints
 
 
@@ -24,17 +24,6 @@ func _interact_toys(_event: InputEvent) -> void:
 		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/first_meeting.dialogue"), "start")
 		return
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	#print(str(evaluatePoints()))
-	
-	
-	pass # Replace with function body.
-
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass

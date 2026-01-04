@@ -1,11 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://dtv6rh8epknlu"]
 
-[ext_resource type="Texture2D" uid="uid://pm5a6v7xfctj" path="res://spritesheets/textures/house_tile (1).png" id="1_3bgk5"]
+[ext_resource type="Texture2D" uid="uid://cgqlnxq3vu1s8" path="res://spritesheets/textures/house_tile (2).png" id="1_3bgk5"]
 [ext_resource type="Texture2D" uid="uid://cjp4snote6bnu" path="res://spritesheets/characters/ray.png" id="3_3bgk5"]
-[ext_resource type="PackedScene" uid="uid://bcpmxgkdw2qag" path="res://actionable.tscn" id="4_f74lx"]
-[ext_resource type="Script" uid="uid://bgbpl41hghx5o" path="res://day_1_dialog.gd" id="4_o1325"]
-[ext_resource type="Resource" uid="uid://cx5mrx8sgp5qq" path="res://dialogue/first_meeting.dialogue" id="5_f74lx"]
-[ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://henry.tscn" id="5_ptc3g"]
+[ext_resource type="PackedScene" uid="uid://bcpmxgkdw2qag" path="res://helpers/actionable.tscn" id="4_f74lx"]
+[ext_resource type="Resource" uid="uid://cx5mrx8sgp5qq" path="res://dialogue/day.dialogue" id="5_f74lx"]
+[ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/henry.tscn" id="5_ptc3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obbqb"]
 size = Vector2(124.75, 1229)
@@ -62,6 +61,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_7685u"]
 radius = 44.070965
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bgk5"]
+size = Vector2(70.42857, 114.71428)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -113,7 +115,6 @@ limit_top = -1
 limit_right = 1344
 limit_bottom = 1147
 editor_draw_limits = true
-script = ExtResource("4_o1325")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(300, 288.00003)
@@ -125,8 +126,15 @@ position = Vector2(-0.5, 0)
 dialogue_resource = ExtResource("5_f74lx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Actionable"]
-position = Vector2(-2.357143, 56.57141)
+position = Vector2(-2.357143, 50.285698)
 shape = SubResource("CircleShape2D_7685u")
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(-1.5, 8.928513)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_3bgk5")
 
 [node name="Henry" parent="." instance=ExtResource("5_ptc3g")]
 position = Vector2(280, 802)
