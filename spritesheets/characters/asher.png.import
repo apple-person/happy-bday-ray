@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba1pn0enflhpr"
-path="res://.godot/imported/ray.png-5b54b5f3f203d51f543b3a48c1dcfd94.ctex"
+uid="uid://dbeamcrcar6vj"
+path="res://.godot/imported/asher.png-f4c62341c556953e1e0d9e1e64ed5085.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spritesheets/characters/ray.png"
-dest_files=["res://.godot/imported/ray.png-5b54b5f3f203d51f543b3a48c1dcfd94.ctex"]
+source_file="res://spritesheets/characters/asher.png"
+dest_files=["res://.godot/imported/asher.png-f4c62341c556953e1e0d9e1e64ed5085.ctex"]
 
 [params]
 

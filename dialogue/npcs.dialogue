@@ -1,0 +1,60 @@
+~ start
+
+if State.met_ray == false:
+	Ray: Welcome to my place!
+	Ray: Hey, you must be Henry, right?
+
+	- Yeah!!
+		Ray: Cool, cool!
+		Ray: Nice meeting you.
+		Ray: I hope you like it here.
+		
+	- ...That's right.
+		Ray: Yeah. Alright.
+		Ray: Well, nice to meet you...
+		Ray: Uh, the place isn't much, but I hope you like it.
+		
+		
+	Ray: Your room is upstairs, by the way.
+	Ray: If you need anything, just let me know.
+	
+	set State.met_ray = true
+else:
+	Ray: Hey again, settling in alright? 
+	Ray: Need something?
+	
+	- Yeah. => help
+	
+	- Not really.
+		Ray: Alright, just let me know.
+	
+=> END
+
+
+~ help
+Ray: Sure, what do you need?
+- 
+- Nearest forest?
+	Ray: A fellow nature lover, huh?
+	Ray: Well, the trail is just past the plushie store.
+	Henry: Thanks.
+=> END
+
+~ plush_store
+
+Asher: Yooo.
+Asher: Anything you're interested in? 
+
+- The cat plush! [if not State.gifts_inventory.has("cat_plush")]
+	Asher: The cat will be ___
+	set State.gifts_inventory.append("cat_plush")
+- The shark plush! [if not State.gifts_inventory.has("haj_plush")]
+	Asher: The shark will be ___
+	Asher: It's a very popular choice.
+	set State.gifts_inventory.append("haj_plush")
+- Nevermind...
+
+Asher: Let me know if you need anything else.
+	
+=> END
+

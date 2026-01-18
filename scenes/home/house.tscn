@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtv6rh8epknlu"]
+[gd_scene load_steps=18 format=3 uid="uid://dtv6rh8epknlu"]
 
 [ext_resource type="Texture2D" uid="uid://cgqlnxq3vu1s8" path="res://spritesheets/textures/house_tile (2).png" id="1_3bgk5"]
 [ext_resource type="Texture2D" uid="uid://cjp4snote6bnu" path="res://spritesheets/characters/ray.png" id="3_3bgk5"]
 [ext_resource type="PackedScene" uid="uid://bcpmxgkdw2qag" path="res://helpers/actionable.tscn" id="4_f74lx"]
 [ext_resource type="Resource" uid="uid://cx5mrx8sgp5qq" path="res://dialogue/day.dialogue" id="5_f74lx"]
 [ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/henry.tscn" id="5_ptc3g"]
+[ext_resource type="Resource" uid="uid://b517bctwbt3i0" path="res://dialogue/objects.dialogue" id="6_mq0yv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obbqb"]
 size = Vector2(124.75, 1229)
@@ -59,10 +60,24 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7685u"]
-radius = 44.070965
+radius = 46.458282
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bgk5"]
 size = Vector2(70.42857, 114.71428)
+
+[sub_resource type="GDScript" id="GDScript_kycn3"]
+script/source = "extends Area2D
+
+@export var dialogue_resource: DialogueResource
+@export var dialogue_start: String = \"start\"
+
+func action() -> void:
+	DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start)
+	return
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xafmu"]
+radius = 46.458282
 
 [node name="Node2D" type="Node2D"]
 
@@ -143,3 +158,14 @@ position = Vector2(280, 802)
 position = Vector2(1076, -437)
 scale = Vector2(2, 2)
 remote_path = NodePath("../../Camera2D")
+
+[node name="Actionable" parent="." instance=ExtResource("4_f74lx")]
+position = Vector2(298.25, 288.00003)
+scale = Vector2(1.75, 1.75)
+script = SubResource("GDScript_kycn3")
+dialogue_resource = ExtResource("6_mq0yv")
+dialogue_start = "kitchen"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
+position = Vector2(387.85715, 133.14284)
+shape = SubResource("CircleShape2D_xafmu")

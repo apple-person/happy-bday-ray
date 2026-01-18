@@ -1,6 +1,6 @@
 extends Node2D
 
-var gifts_inventory = ["potted_plant", "cat_plush"]
+var gifts_inventory = State.gifts_inventory
 var gifts_points = {
 	"potted_plant" = 15,
 	"cat_plush" = 10,

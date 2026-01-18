@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://mumltbjr2v42"]
+[gd_scene load_steps=6 format=3 uid="uid://bjobk8gsj8m3b"]
 
-[ext_resource type="Script" uid="uid://sjq14fqwqmcq" path="res://gift_handler.gd" id="1_4vge2"]
-[ext_resource type="Texture2D" uid="uid://bu7avuf7o628m" path="res://spritesheets/textures/grass_texture.png" id="2_04qyp"]
-[ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/henry.tscn" id="3_rnjyy"]
+[ext_resource type="Script" uid="uid://sjq14fqwqmcq" path="res://gift_handler.gd" id="1_bgcxa"]
+[ext_resource type="Texture2D" uid="uid://bu7avuf7o628m" path="res://spritesheets/textures/grass_texture.png" id="2_yj5dr"]
+[ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/henry.tscn" id="3_xr56k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(135.5, 2016)
@@ -11,18 +11,17 @@ size = Vector2(135.5, 2016)
 size = Vector2(3013.5, 138)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_4vge2")
+script = ExtResource("1_bgcxa")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -1383.0
 offset_top = -969.0
-offset_right = 762.0
-offset_bottom = 391.0
-texture = ExtResource("2_04qyp")
+offset_right = 1407.0
+offset_bottom = 1088.0
+texture = ExtResource("2_yj5dr")
 stretch_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-694, -473)
 limit_left = -1300
 limit_top = -900
 limit_right = 1325
@@ -40,17 +39,16 @@ position = Vector2(31, -967)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-116, 454)
+position = Vector2(-12, 1075)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(827, -425)
+position = Vector2(1402, 61)
 shape = SubResource("RectangleShape2D_epypp")
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="Henry" parent="." instance=ExtResource("3_rnjyy")]
-position = Vector2(-694, -473)
+[node name="Henry" parent="." instance=ExtResource("3_xr56k")]
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Henry"]
 remote_path = NodePath("../../Camera2D")

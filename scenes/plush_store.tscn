@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1wg0658cjlro"]
+[gd_scene load_steps=13 format=3 uid="uid://b1wg0658cjlro"]
 
 [ext_resource type="Script" uid="uid://sjq14fqwqmcq" path="res://gift_handler.gd" id="1_dv7v5"]
 [ext_resource type="Texture2D" uid="uid://pm5a6v7xfctj" path="res://spritesheets/textures/house_tile (1).png" id="2_dv7v5"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bcpmxgkdw2qag" path="res://helpers/actionable.tscn" id="5_schgl"]
 [ext_resource type="Resource" uid="uid://b517bctwbt3i0" path="res://dialogue/objects.dialogue" id="6_7rpmi"]
 [ext_resource type="Texture2D" uid="uid://cgpxsceqdi3px" path="res://spritesheets/gifts/haj_plush.png" id="7_schgl"]
+[ext_resource type="Resource" uid="uid://c0blu2o0p2i30" path="res://dialogue/npcs.dialogue" id="8_7rpmi"]
+[ext_resource type="Texture2D" uid="uid://dbeamcrcar6vj" path="res://spritesheets/characters/asher.png" id="9_phi08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(135.5, 2016)
@@ -21,25 +23,25 @@ radius = 84.14868
 script = ExtResource("1_dv7v5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -1018.0
+offset_left = -638.0
 offset_top = -667.0
 offset_right = 1053.0
-offset_bottom = 698.0
+offset_bottom = 361.0
 texture = ExtResource("2_dv7v5")
 expand_mode = 2
 stretch_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_left = -1300
-limit_top = -900
-limit_right = 1325
-limit_bottom = 1000
+limit_left = -627
+limit_top = -669
+limit_right = 1051
+limit_bottom = 360
 editor_draw_limits = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1051, 54)
+position = Vector2(-696, 58)
 shape = SubResource("RectangleShape2D_epypp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -47,20 +49,15 @@ position = Vector2(-8, -706)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-101, 743)
+position = Vector2(256, 432)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1080, 69)
 shape = SubResource("RectangleShape2D_epypp")
 
-[node name="Henry" parent="." instance=ExtResource("3_aa5bk")]
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Henry"]
-remote_path = NodePath("../../Camera2D")
-
 [node name="cat" parent="." instance=ExtResource("5_schgl")]
-position = Vector2(235, -139)
+position = Vector2(0, -139)
 dialogue_resource = ExtResource("6_7rpmi")
 dialogue_start = "cat_plush"
 
@@ -70,13 +67,13 @@ scale = Vector2(1.9375, 2.046875)
 texture = ExtResource("4_4qoey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cat"]
-position = Vector2(-7, 33)
+position = Vector2(-11, 34)
 shape = SubResource("CircleShape2D_7pf7o")
 
 [node name="blahaj" parent="." instance=ExtResource("5_schgl")]
-position = Vector2(470, -278)
+position = Vector2(0, -400)
 dialogue_resource = ExtResource("6_7rpmi")
-dialogue_start = "aaaaaablahaj"
+dialogue_start = "blahaj"
 
 [node name="Sprite2D" type="Sprite2D" parent="blahaj"]
 position = Vector2(-1.9999084, -1)
@@ -86,3 +83,25 @@ texture = ExtResource("7_schgl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blahaj"]
 position = Vector2(-6, 32)
 shape = SubResource("CircleShape2D_7pf7o")
+
+[node name="storegguy" parent="." instance=ExtResource("5_schgl")]
+position = Vector2(844, -356)
+collision_mask = 16
+dialogue_resource = ExtResource("8_7rpmi")
+dialogue_start = "plush_store"
+
+[node name="Sprite2D" type="Sprite2D" parent="storegguy"]
+position = Vector2(-6.0000305, -83)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("9_phi08")
+region_enabled = true
+region_rect = Rect2(20, 12, 84, 104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="storegguy"]
+position = Vector2(-5, 18)
+shape = SubResource("CircleShape2D_7pf7o")
+
+[node name="Henry" parent="." instance=ExtResource("3_aa5bk")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Henry"]
+remote_path = NodePath("../../Camera2D")

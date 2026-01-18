@@ -61,7 +61,7 @@ ui_down={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/day.dialogue", "res://dialogue/objects.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/day.dialogue", "res://dialogue/objects.dialogue", "res://happy-bday-ray/dialogue/first_meeting.dialogue", "res://untitled.dialogue", "res://dialogue/npcs.dialogue")
 
 [layer_names]
 

@@ -13,6 +13,17 @@
 - Nah => END
 => END
 
+~ kitchen
+: It's a shiny white gutting... I mean, cutting board!
+if State.has_carrots == true || State.has_rabbits == true:
+	: I could make some rabbit stew with these carrots and rabbits.
+	- Do it!
+		: HANDLING HERE
+	- Eh, nah. => END
+else:
+	: Unfortunately, it doesn't look like I have anything to cut right now.
+=> END 
+
 ~ blahaj
 : A cute blue shark plush!
 : Surprisingly soft to the touch...
