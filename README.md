@@ -1,4 +1,4 @@
 # Happy Birthday, Ray!!!!
-## A game made by yours truly... 
+By apple-person 
 
-Cute game for birthday ysws
+More information coming soon...
