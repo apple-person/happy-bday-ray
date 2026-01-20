@@ -12,8 +12,6 @@ func _ready() -> void:
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
 
-
-
 var current_anim: String = ""
 var last_dir := Vector2.DOWN
 var facing_right := true
@@ -63,6 +61,9 @@ func _play_idle_animation():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.ZERO # The player's movement vector.
+	if not State.can_interact:
+		_play_idle_animation()
+		return
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("ui_left"):

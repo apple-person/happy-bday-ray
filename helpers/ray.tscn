@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ba1pn0enflhpr" path="res://spritesheets/characters/ray.png" id="2_imnlx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bjdr"]
-size = Vector2(122, 186)
+size = Vector2(116, 188)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5i5tf"]
 radius = 92.0489
@@ -47,21 +47,6 @@ tracks/2/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_jcnw2"]
-resource_name = "party_idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(0, 0, 128, 128)]
-}
-
 [sub_resource type="Animation" id="Animation_do0wk"]
 resource_name = "normal_down_idle"
 tracks/0/type = "value"
@@ -85,7 +70,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [0.0]
 }
 
@@ -330,22 +315,6 @@ tracks/1/keys = {
 "values": [3.1415927]
 }
 
-[sub_resource type="Animation" id="Animation_oj1v2"]
-resource_name = "party_walk"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Rect2(0, 0, 128, 128), Rect2(128, 0, 128, 128), Rect2(0, 0, 128, 128), Rect2(256, 0, 128, 128)]
-}
-
 [sub_resource type="Animation" id="Animation_ri6an"]
 resource_name = "party_blush"
 tracks/0/type = "value"
@@ -359,6 +328,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Rect2(384, 128, 128, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_jcnw2"]
+resource_name = "party_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 128, 128)]
 }
 
 [sub_resource type="Animation" id="Animation_m7caw"]
@@ -375,6 +359,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Rect2(512, 128, 128, 128), Rect2(0, 256, 128, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_oj1v2"]
+resource_name = "party_walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 128, 128), Rect2(128, 0, 128, 128), Rect2(0, 0, 128, 128), Rect2(256, 0, 128, 128)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tpa1e"]
@@ -397,7 +397,7 @@ _data = {
 [node name="Ray" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4.9999995, 0.99999994)
+position = Vector2(-6.000001, -9.000003)
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("2_imnlx")
 flip_h = true
@@ -406,11 +406,10 @@ region_rect = Rect2(20, 8, 80, 108)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(0, 3)
+position = Vector2(-14, -11)
 shape = SubResource("RectangleShape2D_1bjdr")
 
 [node name="Direction" type="Marker2D" parent="."]
-visible = false
 
 [node name="ActionableFinder" type="Area2D" parent="Direction"]
 position = Vector2(-3, -1)

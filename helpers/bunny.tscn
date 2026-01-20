@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dui0qf84brbom"]
+
+[ext_resource type="Script" uid="uid://b0laum1uifwsn" path="res://helpers/bunny.gd" id="1_dvrf6"]
+[ext_resource type="PackedScene" uid="uid://yuigjuvvj2dv" path="res://helpers/bunny.tscn" id="2_e4qck"]
+[ext_resource type="PackedScene" uid="uid://bcpmxgkdw2qag" path="res://helpers/actionable.tscn" id="3_e4qck"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gs0sc"]
+radius = 45.044422
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gs0sc"]
+size = Vector2(110.5, 113)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_dvrf6")
+
+[node name="bunny" parent="." instance=ExtResource("2_e4qck")]
+script = null
+
+[node name="Actionable" parent="bunny" instance=ExtResource("3_e4qck")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bunny/Actionable"]
+position = Vector2(4, 20)
+shape = SubResource("CircleShape2D_gs0sc")
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_gs0sc")

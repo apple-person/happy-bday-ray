@@ -15,7 +15,7 @@
 
 ~ kitchen
 : It's a shiny white gutting... I mean, cutting board!
-if State.has_carrots == true || State.has_rabbits == true:
+if State.has_carrots == true && State.rabbit_amount == 2:
 	: I could make some rabbit stew with these carrots and rabbits.
 	- Do it!
 		: HANDLING HERE
@@ -38,4 +38,20 @@ else:
 ~ potted_plant
 : A potted plant...
 : If Ray likes gardening, then...
+=> END
+
+~ bunny_body
+if not State.rabbit_amount == 2:
+	if State.rabbit_amount == 0:
+		: ...Well, I guess this one will do.
+		: Looks like a good catch. 
+		: I'll need another one if I want to make some rabbit stew.
+	elseif State.rabbit_amount == 1:
+		: Nice!
+		: This one is good.
+		: I hope Ray likes it.
+	
+	set State.rabbit.amount += 1
+else:
+	: I won't need any more rabbits to make stew.
 => END

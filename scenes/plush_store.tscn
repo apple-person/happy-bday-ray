@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1wg0658cjlro"]
+[gd_scene load_steps=19 format=3 uid="uid://b1wg0658cjlro"]
 
 [ext_resource type="Script" uid="uid://sjq14fqwqmcq" path="res://gift_handler.gd" id="1_dv7v5"]
 [ext_resource type="Texture2D" uid="uid://pm5a6v7xfctj" path="res://spritesheets/textures/house_tile (1).png" id="2_dv7v5"]
@@ -18,6 +18,64 @@ size = Vector2(3013.5, 138)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7pf7o"]
 radius = 84.14868
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phi08"]
+atlas = ExtResource("9_phi08")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pf7o"]
+atlas = ExtResource("9_phi08")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g25np"]
+atlas = ExtResource("9_phi08")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07auu"]
+atlas = ExtResource("9_phi08")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75wvy"]
+atlas = ExtResource("9_phi08")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vcl2d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phi08")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pf7o")
+}],
+"loop": true,
+"name": &"looking_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g25np")
+}],
+"loop": true,
+"name": &"shy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_07auu")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_75wvy")
+}],
+"loop": true,
+"name": &"thank_you",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_dv7v5")
@@ -90,12 +148,12 @@ collision_mask = 16
 dialogue_resource = ExtResource("8_7rpmi")
 dialogue_start = "plush_store"
 
-[node name="Sprite2D" type="Sprite2D" parent="storegguy"]
-position = Vector2(-6.0000305, -83)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="storegguy"]
+position = Vector2(-3.0000153, -74)
 scale = Vector2(1.75, 1.75)
-texture = ExtResource("9_phi08")
-region_enabled = true
-region_rect = Rect2(20, 12, 84, 104)
+sprite_frames = SubResource("SpriteFrames_vcl2d")
+animation = &"shy"
+frame_progress = 0.013840386
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="storegguy"]
 position = Vector2(-5, 18)
