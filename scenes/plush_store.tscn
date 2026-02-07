@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://sjq14fqwqmcq" path="res://gift_handler.gd" id="1_dv7v5"]
 [ext_resource type="Texture2D" uid="uid://pm5a6v7xfctj" path="res://spritesheets/textures/house_tile (1).png" id="2_dv7v5"]
-[ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/henry.tscn" id="3_aa5bk"]
+[ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/characters/henry.tscn" id="3_aa5bk"]
 [ext_resource type="Texture2D" uid="uid://d28cvq85bau0s" path="res://spritesheets/gifts/cat_plush.png" id="4_4qoey"]
 [ext_resource type="PackedScene" uid="uid://bcpmxgkdw2qag" path="res://helpers/actionable.tscn" id="5_schgl"]
 [ext_resource type="Resource" uid="uid://b517bctwbt3i0" path="res://dialogue/objects.dialogue" id="6_7rpmi"]

@@ -61,7 +61,7 @@ ui_down={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/day.dialogue", "res://dialogue/objects.dialogue", "res://happy-bday-ray/dialogue/first_meeting.dialogue", "res://untitled.dialogue", "res://dialogue/npcs.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/day.dialogue", "res://dialogue/objects.dialogue", "res://untitled.dialogue", "res://dialogue/npcs.dialogue", "res://happy-bday-ray-1/untitled.dialogue", "res://happy-bday-ray-1/dialogue/objects.dialogue", "res://happy-bday-ray-1/dialogue/day.dialogue", "res://happy-bday-ray-1/dialogue/npcs.dialogue", "res://happy-bday-ray-2/untitled.dialogue", "res://happy-bday-ray-2/dialogue/objects.dialogue", "res://happy-bday-ray-2/dialogue/day.dialogue", "res://happy-bday-ray-2/dialogue/npcs.dialogue")
 
 [layer_names]
 

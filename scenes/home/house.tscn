@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ba1pn0enflhpr" path="res://spritesheets/characters/ray.png" id="3_3bgk5"]
 [ext_resource type="PackedScene" uid="uid://bcpmxgkdw2qag" path="res://helpers/actionable.tscn" id="4_f74lx"]
 [ext_resource type="Resource" uid="uid://cx5mrx8sgp5qq" path="res://dialogue/day.dialogue" id="5_f74lx"]
-[ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/henry.tscn" id="5_ptc3g"]
+[ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/characters/henry.tscn" id="5_ptc3g"]
 [ext_resource type="Resource" uid="uid://b517bctwbt3i0" path="res://dialogue/objects.dialogue" id="6_mq0yv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obbqb"]

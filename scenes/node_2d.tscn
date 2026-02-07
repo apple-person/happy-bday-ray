@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://sjq14fqwqmcq" path="res://gift_handler.gd" id="1_4vge2"]
 [ext_resource type="Texture2D" uid="uid://bu7avuf7o628m" path="res://spritesheets/textures/grass_texture.png" id="2_04qyp"]
-[ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/henry.tscn" id="3_rnjyy"]
+[ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/characters/henry.tscn" id="3_rnjyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(135.5, 2016)
