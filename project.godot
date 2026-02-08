@@ -24,6 +24,11 @@ State="*res://state.gd"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
 
+[global_group]
+
+world_bounds=""
+player=""
+
 [input]
 
 ui_left={

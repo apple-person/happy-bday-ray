@@ -35,9 +35,22 @@ else:
 : Suddenly, I am tempted to buy one just for myself...
 => END
 
+~ cactus
+: It's a small cactus! I'll have to be careful when picking it up...
+: But my hands are full since I'm already carryinng this other plant... [if State.temp_inventory.has("strange_plant")]
+
+- Take this plant
+	do State.temp_inventory.append("strange_plant")
+- Leave it
+=> END 
+
 ~ potted_plant
 : A potted plant...
-: If Ray likes gardening, then...
+: If Ray likes gardening, then he might like this one.
+: But my hands are full since I'm already carryinng this cactus... [if State.temp_inventory.has("cactus")]
+
+- Take this plant
+- Leave it 
 => END
 
 ~ bunny_body

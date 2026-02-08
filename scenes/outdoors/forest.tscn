@@ -30,7 +30,7 @@ limit_right = 1325
 limit_bottom = 1000
 editor_draw_limits = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["world_bounds"]]
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-1385, 43)

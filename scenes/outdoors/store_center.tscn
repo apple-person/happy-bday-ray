@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://mumltbjr2v42"]
 
-[ext_resource type="Script" uid="uid://sjq14fqwqmcq" path="res://gift_handler.gd" id="1_4vge2"]
-[ext_resource type="Texture2D" uid="uid://bu7avuf7o628m" path="res://spritesheets/textures/grass_texture.png" id="2_04qyp"]
-[ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/characters/henry.tscn" id="3_rnjyy"]
+[ext_resource type="Script" uid="uid://sjq14fqwqmcq" path="res://gift_handler.gd" id="1_3s50c"]
+[ext_resource type="Texture2D" uid="uid://bu7avuf7o628m" path="res://spritesheets/textures/grass_texture.png" id="2_ypg5v"]
+[ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/characters/henry.tscn" id="3_mejht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(135.5, 2016)
@@ -11,14 +11,14 @@ size = Vector2(135.5, 2016)
 size = Vector2(3013.5, 138)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_4vge2")
+script = ExtResource("1_3s50c")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." groups=["world_bounds"]]
 offset_left = -1383.0
 offset_top = -969.0
-offset_right = 762.0
-offset_bottom = 391.0
-texture = ExtResource("2_04qyp")
+offset_right = 1349.0
+offset_bottom = 942.0
+texture = ExtResource("2_ypg5v")
 stretch_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -29,7 +29,7 @@ limit_right = 1325
 limit_bottom = 1000
 editor_draw_limits = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["world_bounds"]]
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-1385, 43)
@@ -40,16 +40,16 @@ position = Vector2(31, -967)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-116, 454)
+position = Vector2(130, 951)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(827, -425)
+position = Vector2(1378, -22)
 shape = SubResource("RectangleShape2D_epypp")
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="Henry" parent="." instance=ExtResource("3_rnjyy")]
+[node name="Henry" parent="." instance=ExtResource("3_mejht")]
 position = Vector2(-694, -473)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Henry"]

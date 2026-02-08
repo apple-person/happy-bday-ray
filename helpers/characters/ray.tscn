@@ -397,7 +397,7 @@ _data = {
 [node name="Ray" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-6.000001, -9.000003)
+position = Vector2(-5, -8.000002)
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("2_imnlx")
 flip_h = true

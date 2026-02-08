@@ -329,7 +329,7 @@ _data = {
 &"up_walk": SubResource("Animation_ogqcr")
 }
 
-[node name="Henry" type="CharacterBody2D"]
+[node name="Henry" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_jdwvl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -23,7 +23,7 @@ else:
 	Ray: Hey again, settling in alright? 
 	Ray: Need something?
 	
-	- Yeah. => help
+	- Yeah. => help_placeholder
 	
 	- Not really.
 		Ray: Alright, just let me know.
@@ -31,7 +31,7 @@ else:
 => END
 
 
-~ help
+~ help_placeholder
 Ray: Sure, what do you need?
 - 
 - Nearest forest?
@@ -58,3 +58,14 @@ Asher: Let me know if you need anything else.
 	
 => END
 
+~ plant_store
+=> END
+
+~ grocery_store
+- I'd like to buy some carrots. [if State.has_carrots]
+- Nevermind...
+=> END
+
+~ rose_girl
+Girl: I wanna get these flowers for my momma. She loooves red. Aren't they nice?
+=> END

@@ -11,6 +11,7 @@ func _ready() -> void:
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
+var gun: Node2D = null
 
 var current_anim: String = ""
 var last_dir := Vector2.DOWN
@@ -77,7 +78,9 @@ func _physics_process(delta: float) -> void:
 		if actionables.size() > 0:
 			actionables[0].action()
 			return
-		#DialogueManager.show_example_dialogue_balloon(load("res://dialogue/first_meeting.dialogue"), "start")
+		elif gun:
+			gun.shoot()
+			
 		return
 	
 	if velocity.length() > 0:
