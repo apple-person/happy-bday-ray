@@ -2,10 +2,11 @@ extends Area2D
 
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String = "start"
-var henry
+signal actioned
 
 func action() -> void:
 	if State.can_interact:
+		emit_signal("actioned")
 		State.can_interact = false
 		DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start)
 	return
@@ -15,5 +16,3 @@ func _ready() -> void:
 	
 func _on_dialogue_ended(resource: DialogueResource) -> void:
 	State.can_interact = true 
-	# Example action:
-	# get_tree().change_scene_to_file("res://next_scene.tscn")

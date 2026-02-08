@@ -1,5 +1,10 @@
 ~ box1
 : It's a few boxes that you had begun to unpack.
+: One of the boxes is open.
+
+: Check what's inside?
+- Sure => gun
+- Nah
 => END
 
 ~ box2
@@ -9,8 +14,16 @@
 : Check what's inside? 
 - Sure
 	: There's a plushie in here.
-	: Looks well-loved.	
-- Nah => END
+	: Looks well-loved.
+- Nah
+=> END
+
+~ gun
+: It's your trusty gun!
+: Would you like to take it?
+- Sure
+	: You took the gun with you.
+- Nah
 => END
 
 ~ kitchen
@@ -19,10 +32,18 @@ if State.has_carrots == true && State.rabbit_amount == 2:
 	: I could make some rabbit stew with these carrots and rabbits.
 	- Do it!
 		: HANDLING HERE
+		set State.has_carrots = false 
+		set State.rabbit_amount = 0
+		do State.gifts_inventory.append("stew") 
 	- Eh, nah. => END
 else:
 	: Unfortunately, it doesn't look like I have anything to cut right now.
 => END 
+
+~ calendar
+: It's a calendar with a plant-themed decoration on it.
+: Huh... a date is circled. Ray's birthday is soon.
+=> END
 
 ~ blahaj
 : A cute blue shark plush!
@@ -37,24 +58,41 @@ else:
 
 ~ cactus
 : It's a small cactus! I'll have to be careful when picking it up...
-: But my hands are full since I'm already carryinng this other plant... [if State.temp_inventory.has("strange_plant")]
+: But my hands are full since I'm already carryinng this other plant... [if State.temp_inventory.has("strange_plant")] => END
 
 - Take this plant
-	do State.temp_inventory.append("strange_plant")
+	: You took the plant.
+	do State.temp_inventory.append("cactus")
 - Leave it
 => END 
 
 ~ potted_plant
 : A potted plant...
 : If Ray likes gardening, then he might like this one.
-: But my hands are full since I'm already carryinng this cactus... [if State.temp_inventory.has("cactus")]
+: But my hands are full since I'm already carryinng this cactus... [if State.temp_inventory.has("cactus")] => END
+: Take this plant? 
 
-- Take this plant
+- Yes
+	: You took the plant.
+	do State.temp_inventory.append("strange_plant")
 - Leave it 
 => END
 
+~ produce
+: It's a bunch of colorful fruits and veggies!
+=> END
+
+~ carrots
+: Ooh, carrots. I could make some stew from these.
+: Take the carrots? 
+- Yes
+	: You took the carrots.
+	do State.temp_inventory.append("carrots")
+- No
+=> END 
+
 ~ bunny_body
-if not State.rabbit_amount == 2:
+if not (State.rabbit_amount == 2):
 	if State.rabbit_amount == 0:
 		: ...Well, I guess this one will do.
 		: Looks like a good catch. 
@@ -64,7 +102,7 @@ if not State.rabbit_amount == 2:
 		: This one is good.
 		: I hope Ray likes it.
 	
-	set State.rabbit.amount += 1
+	set State.rabbit_amount += 1
 else:
 	: I won't need any more rabbits to make stew.
 => END

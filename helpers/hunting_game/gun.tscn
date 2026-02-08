@@ -26,3 +26,5 @@ shape = SubResource("RectangleShape2D_ccbn4")
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(85, 5)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

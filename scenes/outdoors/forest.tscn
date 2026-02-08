@@ -65,4 +65,4 @@ sprite_frames = SubResource("SpriteFrames_bgcxa")
 position = Vector2(148, 558)
 
 [node name="gun" parent="." instance=ExtResource("5_g0ld8")]
-position = Vector2(-15, 550)
+position = Vector2(544, 197)
