@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjobk8gsj8m3b"]
+[gd_scene load_steps=9 format=3 uid="uid://bjobk8gsj8m3b"]
 
 [ext_resource type="Script" uid="uid://736y8frxjrbv" path="res://scenes/outdoors/forest.gd" id="1_4nbug"]
 [ext_resource type="Texture2D" uid="uid://bu7avuf7o628m" path="res://spritesheets/textures/grass_texture.png" id="2_58aay"]
+[ext_resource type="PackedScene" uid="uid://dui0qf84brbom" path="res://helpers/hunting_game/bunny.tscn" id="2_g0ld8"]
 [ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/characters/henry.tscn" id="3_g0ld8"]
+[ext_resource type="PackedScene" uid="uid://eg6d3vge07p2" path="res://helpers/hunting_game/gun.tscn" id="5_g0ld8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(135.5, 2016)
@@ -14,6 +16,7 @@ size = Vector2(3013.5, 138)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_4nbug")
+bunny_scene = ExtResource("2_g0ld8")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -1383.0
@@ -60,3 +63,6 @@ sprite_frames = SubResource("SpriteFrames_bgcxa")
 
 [node name="bun_spawn_point" type="Marker2D" parent="."]
 position = Vector2(148, 558)
+
+[node name="gun" parent="." instance=ExtResource("5_g0ld8")]
+position = Vector2(-15, 550)
