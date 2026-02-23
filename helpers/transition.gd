@@ -1,15 +1,11 @@
 extends Area2D
 
-@export var target: PackedScene
-
-# Called when the node enters the scene tree for the first time.
-'''func _ready() -> void:
-	pass # Replace with function body.'''
+@export_file("*.tscn") var target_path: String
 
 func _change_scene() -> void:
-	get_tree().change_scene_to_packed(target)
+	get_tree().change_scene_to_file(target_path)
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		print("Player entered!")
-		_change_scene()
+		call_deferred("_change_scene")

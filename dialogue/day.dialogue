@@ -1,30 +1,16 @@
 ~ start
-
+: ... *Yawn.*
+: ...Ugh, what time is it?...
+: Shoot!
+: Ray's birthday is tomorrow.
+: I should probably get him a little something, at least... 
 => END 
 
-~ meeting_ray
-
-if State.met_ray == false:
-	Ray: Welcome to my place!
-	Ray: Hey, you must be Henry, right?
-
-	- Yeah!!
-		Ray: Cool, cool!
-		Ray: Nice meeting you.
-		Ray: I hope you like it here.
-		
-	Ray: Your room is upstairs, by the way.
-	Ray: I will be going out for a while. See you later! 
-	
-	set State.met_ray = true
+~ henry_room
+: Oh, lucky me...!
+: I think he's going out for a little while. 
+: This is my chance.
 => END
-
-~ help
-
-Ray: Sure, what's up?
-
-=> END
-
 
 ~ gifts_start
 

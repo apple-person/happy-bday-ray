@@ -1,6 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://b1wg0658cjlro"]
+[gd_scene format=3 uid="uid://b1wg0658cjlro"]
 
-[ext_resource type="Script" uid="uid://sjq14fqwqmcq" path="res://gift_handler.gd" id="1_dv7v5"]
+[ext_resource type="Script" uid="uid://usdunt66nmnf" path="res://state.gd" id="1_dv7v5"]
 [ext_resource type="Texture2D" uid="uid://pm5a6v7xfctj" path="res://spritesheets/textures/house_tile (1).png" id="2_dv7v5"]
 [ext_resource type="Texture2D" uid="uid://c4o3fp1bh1sc7" path="res://spritesheets/props/New Piskel-1.png-1.png-3.png" id="3_7pf7o"]
 [ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/characters/henry.tscn" id="3_aa5bk"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cgpxsceqdi3px" path="res://spritesheets/gifts/haj_plush.png" id="7_schgl"]
 [ext_resource type="Resource" uid="uid://c0blu2o0p2i30" path="res://dialogue/npcs.dialogue" id="8_7rpmi"]
 [ext_resource type="Texture2D" uid="uid://dbeamcrcar6vj" path="res://spritesheets/characters/asher.png" id="9_phi08"]
+[ext_resource type="Texture2D" uid="uid://b5rn3h3qwe7r" path="res://spritesheets/characters/npcs.png" id="12_07auu"]
+[ext_resource type="PackedScene" uid="uid://ccqh7cajmkwxs" path="res://helpers/transition.tscn" id="13_vcl2d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(135.5, 2016)
@@ -85,67 +87,79 @@ size = Vector2(1022.25, 310)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07auu"]
 size = Vector2(402.5, 195)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g25np"]
-size = Vector2(1036, 344.75)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75wvy"]
+size = Vector2(451, 136)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g25np"]
+size = Vector2(1036, 326.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jm1j"]
+size = Vector2(126, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcl2d"]
+size = Vector2(451, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwaqd"]
+size = Vector2(415, 108)
+
+[node name="Node2D" type="Node2D" unique_id=723148842]
 script = ExtResource("1_dv7v5")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1588943252]
 offset_left = -638.0
 offset_top = -667.0
 offset_right = 1053.0
-offset_bottom = 884.0
+offset_bottom = 741.0
 texture = ExtResource("2_dv7v5")
 expand_mode = 2
 stretch_mode = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(741, 126)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2127997157]
+position = Vector2(170, 475)
 limit_left = -627
 limit_top = -669
 limit_right = 1051
 limit_bottom = 883
 editor_draw_limits = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["world_bounds"]]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=462494378 groups=["world_bounds"]]
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=560336506]
 position = Vector2(-696, 58)
 shape = SubResource("RectangleShape2D_epypp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=621555499]
 position = Vector2(-8, -706)
 shape = SubResource("RectangleShape2D_0hol4")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(242, 927)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1426054348]
+position = Vector2(235, 784)
 shape = SubResource("RectangleShape2D_0hol4")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1535347865]
 position = Vector2(1080, 69)
 shape = SubResource("RectangleShape2D_epypp")
 
-[node name="storegguy" parent="." instance=ExtResource("5_schgl")]
+[node name="storegguy" parent="." unique_id=924067789 instance=ExtResource("5_schgl")]
 position = Vector2(844, -356)
 collision_mask = 16
 dialogue_resource = ExtResource("8_7rpmi")
 dialogue_start = "plush_store"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="storegguy"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="storegguy" unique_id=1263720372]
 position = Vector2(-3.0000153, -74)
 scale = Vector2(1.75, 1.75)
 sprite_frames = SubResource("SpriteFrames_vcl2d")
 animation = &"shy"
 frame_progress = 0.013840386
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="storegguy"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="storegguy" unique_id=1352378490]
 position = Vector2(-5, 18)
 shape = SubResource("CircleShape2D_7pf7o")
 
-[node name="shelves_counter" type="StaticBody2D" parent="."]
+[node name="shelves_counter" type="StaticBody2D" parent="." unique_id=2058394292]
 
-[node name="TextureRect" type="TextureRect" parent="shelves_counter"]
+[node name="TextureRect" type="TextureRect" parent="shelves_counter" unique_id=2054671303]
 offset_left = -644.0
 offset_top = -724.0
 offset_right = 387.0
@@ -153,65 +167,63 @@ offset_bottom = -212.0
 texture = ExtResource("3_7pf7o")
 stretch_mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="shelves_counter"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shelves_counter" unique_id=1886213687]
 position = Vector2(-134.125, -514)
 shape = SubResource("RectangleShape2D_phi08")
 
-[node name="Sprite2D" type="Sprite2D" parent="shelves_counter"]
+[node name="Sprite2D" type="Sprite2D" parent="shelves_counter" unique_id=722361418]
 position = Vector2(825, -300.00003)
 scale = Vector2(3.714, 3)
 texture = ExtResource("7_g25np")
 region_enabled = true
 region_rect = Rect2(266, 10, 112, 42)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="shelves_counter"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="shelves_counter" unique_id=137212550]
 position = Vector2(832, -430.5)
 shape = SubResource("RectangleShape2D_07auu")
 
-[node name="Sprite2D2" type="Sprite2D" parent="shelves_counter"]
+[node name="register" type="Sprite2D" parent="shelves_counter" unique_id=1858923301]
 position = Vector2(840, -355)
 scale = Vector2(2.5017483, 2.8057108)
 texture = ExtResource("7_g25np")
 region_enabled = true
 region_rect = Rect2(154, 10, 44, 38)
 
-[node name="cat" parent="." instance=ExtResource("5_schgl")]
-position = Vector2(252, -328)
-dialogue_resource = ExtResource("6_7rpmi")
-dialogue_start = "cat_plush"
+[node name="static_haj" type="Node" parent="shelves_counter" unique_id=1340521568]
 
-[node name="Sprite2D" type="Sprite2D" parent="cat"]
-position = Vector2(0, -6.500004)
-scale = Vector2(1.894, 2)
-texture = ExtResource("4_4qoey")
+[node name="Sprite2D3" type="Sprite2D" parent="shelves_counter/static_haj" unique_id=1982279859]
+z_as_relative = false
+position = Vector2(-499.00003, -313)
+scale = Vector2(3, 3)
+texture = ExtResource("7_schgl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cat"]
-position = Vector2(-1, 50)
-shape = SubResource("CircleShape2D_7pf7o")
+[node name="Sprite2D4" type="Sprite2D" parent="shelves_counter/static_haj" unique_id=1845735476]
+position = Vector2(-501.00006, -450)
+scale = Vector2(3, 3)
+texture = ExtResource("7_schgl")
 
-[node name="blahaj" parent="." instance=ExtResource("5_schgl")]
+[node name="Sprite2D5" type="Sprite2D" parent="shelves_counter/static_haj" unique_id=2069506788]
+position = Vector2(-274, -447)
+scale = Vector2(3, 3)
+texture = ExtResource("7_schgl")
+
+[node name="blahaj" parent="." unique_id=367470294 instance=ExtResource("5_schgl")]
 position = Vector2(0, -400)
 dialogue_resource = ExtResource("6_7rpmi")
 dialogue_start = "blahaj"
 
-[node name="Sprite2D" type="Sprite2D" parent="blahaj"]
+[node name="Sprite2D" type="Sprite2D" parent="blahaj" unique_id=413159050]
 position = Vector2(-262.00003, 91)
-scale = Vector2(2.84, 3)
+scale = Vector2(3, 3.169)
 texture = ExtResource("7_schgl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="blahaj"]
-position = Vector2(-257, 110)
-shape = SubResource("CircleShape2D_7pf7o")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blahaj" unique_id=547297647]
+position = Vector2(-387.5, 142)
+shape = SubResource("RectangleShape2D_75wvy")
 
-[node name="Henry" parent="." instance=ExtResource("3_aa5bk")]
-position = Vector2(741, 126)
+[node name="shelves2" type="StaticBody2D" parent="." unique_id=1039116821]
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Henry"]
-remote_path = NodePath("../../Camera2D")
-
-[node name="shelves2" type="StaticBody2D" parent="."]
-
-[node name="TextureRect2" type="TextureRect" parent="shelves2"]
+[node name="TextureRect2" type="TextureRect" parent="shelves2" unique_id=197959608]
 offset_left = -636.0
 offset_top = -54.0
 offset_right = 395.0
@@ -219,6 +231,59 @@ offset_bottom = 458.0
 texture = ExtResource("3_7pf7o")
 stretch_mode = 1
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="shelves2"]
-position = Vector2(-123, 252)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="shelves2" unique_id=1689074210]
+position = Vector2(-128, 150.8125)
 shape = SubResource("RectangleShape2D_g25np")
+
+[node name="static_cat" type="Node" parent="shelves2" unique_id=1590901600]
+
+[node name="Sprite2D" type="Sprite2D" parent="shelves2/static_cat" unique_id=1183214242]
+position = Vector2(19, 335)
+scale = Vector2(2, 2)
+texture = ExtResource("4_4qoey")
+
+[node name="Sprite2D2" type="Sprite2D" parent="shelves2/static_cat" unique_id=827872442]
+position = Vector2(125, 196)
+scale = Vector2(2, 2)
+texture = ExtResource("4_4qoey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shelves2" unique_id=400524180]
+position = Vector2(-498, 398.5)
+shape = SubResource("RectangleShape2D_0jm1j")
+
+[node name="cat" parent="." unique_id=1169033735 instance=ExtResource("5_schgl")]
+position = Vector2(259, 338)
+dialogue_resource = ExtResource("6_7rpmi")
+dialogue_start = "cat_plush"
+
+[node name="Sprite2D" type="Sprite2D" parent="cat" unique_id=615367677]
+position = Vector2(0, -6.500004)
+scale = Vector2(2, 2)
+texture = ExtResource("4_4qoey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cat" unique_id=451982154]
+position = Vector2(-127.5, 67)
+shape = SubResource("RectangleShape2D_vcl2d")
+
+[node name="Henry" parent="." unique_id=118152353 instance=ExtResource("3_aa5bk")]
+z_index = 111
+position = Vector2(170, 475)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Henry" unique_id=1185903190]
+remote_path = NodePath("../../Camera2D")
+
+[node name="boy" parent="." unique_id=1752122086 instance=ExtResource("5_schgl")]
+position = Vector2(-329, -979)
+dialogue_resource = ExtResource("8_7rpmi")
+dialogue_start = "boy"
+
+[node name="Sprite2D" type="Sprite2D" parent="boy" unique_id=467219019]
+position = Vector2(-167, 1409.0001)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("12_07auu")
+region_enabled = true
+region_rect = Rect2(128, 0, 128, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boy" unique_id=1797686250]
+position = Vector2(-172, 1491)
+shape = SubResource("CircleShape2D_7pf7o")

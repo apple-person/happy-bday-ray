@@ -6,6 +6,7 @@ riderModule.iml
 
 # Godot 4+ specific ignores
 .godot/
+.godot/editor
 
 # Godot-specific ignores
 .import/

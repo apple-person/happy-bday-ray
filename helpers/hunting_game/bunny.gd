@@ -1,34 +1,23 @@
 extends CharacterBody2D
 
-@export var color: String = ""
-
 var scatter_dir: Vector2 = Vector2.ZERO
 var scatter_time := 0.0
 var dead := false
-
-func _ready():
-	$dead_body.actioned.connect(_on_actioned)
+@export var color: String
 
 func _physics_process(delta: float) -> void:
-	if scatter_time > 0.0 and not dead:
+	if scatter_time > 0.0:
 		scatter_time -= delta
-		velocity = scatter_dir * 400
-		#print("processing")
+		velocity = scatter_dir * 120
 	else:
 		velocity = Vector2.ZERO
-		$AnimatedSprite2D.play(color + "_idle")
-	move_and_slide()
+		move_and_slide()
 
 func scatter() -> void:
-	$AnimatedSprite2D.play(color + "_run")
-	#print("scattering")
-	
-	scatter_time = 5
-	
 	scatter_dir = Vector2(
 		randf_range(-1.0, 1.0),
-		randf_range(-1.0, 1.0)
-	)
+		randf_range(-0.5, 0.5)
+	).normalized()
 	
 	if velocity.x < 0:
 		$AnimatedSprite2D.flip_h = true
@@ -50,7 +39,12 @@ func die() -> void:
 
 func _on_actioned():
 	$dead_body.monitoring = false
-	print(State.rabbit_amount)
 	
+	'''
+	DialogueManager.show_dialogue(
+		"res://dialogue/objects.dialogue",
+		"bunny_body"
+	)'''
+
 	await DialogueManager.dialogue_ended
 	queue_free()
