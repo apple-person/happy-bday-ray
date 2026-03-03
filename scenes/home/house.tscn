@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://dtv6rh8epknlu"]
 
 [ext_resource type="Texture2D" uid="uid://cgqlnxq3vu1s8" path="res://spritesheets/textures/house_tile (2).png" id="1_3bgk5"]
+[ext_resource type="Script" uid="uid://itbupwk3s38v" path="res://scenes/home/house.gd" id="1_6ic1j"]
 [ext_resource type="Texture2D" uid="uid://dk2ij07jmfhju" path="res://spritesheets/props/home_furniture.png" id="2_xafmu"]
 [ext_resource type="Texture2D" uid="uid://ba1pn0enflhpr" path="res://spritesheets/characters/ray.png" id="3_3bgk5"]
-[ext_resource type="PackedScene" uid="uid://bcpmxgkdw2qag" path="res://helpers/actionable.tscn" id="4_f74lx"]
+[ext_resource type="PackedScene" uid="uid://bcpmxgkdw2qag" path="res://helpers/misc/actionable.tscn" id="4_f74lx"]
 [ext_resource type="Resource" uid="uid://cx5mrx8sgp5qq" path="res://dialogue/day.dialogue" id="5_f74lx"]
+[ext_resource type="Resource" uid="uid://dfce6dyaiu6ca" path="res://dialogue/hints.dialogue" id="5_irjyc"]
 [ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/characters/henry.tscn" id="5_ptc3g"]
 [ext_resource type="Resource" uid="uid://b517bctwbt3i0" path="res://dialogue/objects.dialogue" id="6_mq0yv"]
-[ext_resource type="PackedScene" uid="uid://ccqh7cajmkwxs" path="res://helpers/transition.tscn" id="7_xafmu"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6ic1j"]
-load_path = "res://.godot/imported/home_furniture.png-172e19154b80f71074d91c0d8bb8bd75.ctex"
+[ext_resource type="PackedScene" uid="uid://ccqh7cajmkwxs" path="res://helpers/misc/transition.tscn" id="7_xafmu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obbqb"]
 size = Vector2(124.75, 1229)
@@ -18,8 +17,23 @@ size = Vector2(124.75, 1229)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjvky"]
 size = Vector2(2019.375, 138)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6ic1j"]
+load_path = "res://.godot/imported/home_furniture.png-172e19154b80f71074d91c0d8bb8bd75.ctex"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irjyc"]
 size = Vector2(217.2265, 17.830185)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ic1j"]
+size = Vector2(139, 210)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_irjyc"]
+radius = 59.211487
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ndrc3"]
+radius = 65.192024
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dpx5l"]
+radius = 71.063354
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wcu0q"]
 atlas = ExtResource("3_3bgk5")
@@ -94,6 +108,7 @@ size = Vector2(587, 101)
 size = Vector2(201.25, 330.5)
 
 [node name="Node2D" type="Node2D" unique_id=8617118]
+script = ExtResource("1_6ic1j")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=310147484]
 offset_right = 1344.0
@@ -108,35 +123,18 @@ offset_bottom = 1152.0
 texture = ExtResource("1_3bgk5")
 stretch_mode = 1
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2063289630]
+position = Vector2(1257.9999, 357.00003)
+scale = Vector2(1.9999999, 1.9999999)
+zoom = Vector2(0.75, 0.75)
+limit_left = 0
+limit_top = -1
+limit_right = 1344
+limit_bottom = 1147
+editor_draw_limits = true
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=692523741]
 position = Vector2(0, 640)
-
-[node name="table" type="Sprite2D" parent="StaticBody2D" unique_id=704458905]
-position = Vector2(983, -287)
-scale = Vector2(0.9814817, 0.9814818)
-texture = ExtResource("2_xafmu")
-region_enabled = true
-region_rect = Rect2(16, 12, 224, 108)
-
-[node name="counter" type="Sprite2D" parent="StaticBody2D" unique_id=1765175911]
-position = Vector2(630.00006, -40)
-scale = Vector2(1.25, 1.25)
-texture = SubResource("CompressedTexture2D_6ic1j")
-region_enabled = true
-region_rect = Rect2(592, 284, 92, 68)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/counter" unique_id=890877636]
-position = Vector2(262.29996, -5.9604645e-06)
-scale = Vector2(4.37, 1)
-texture = SubResource("CompressedTexture2D_6ic1j")
-region_enabled = true
-region_rect = Rect2(76, 540, 100, 68)
-
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D/counter" unique_id=335108285]
-position = Vector2(523.9999, 0)
-texture = ExtResource("2_xafmu")
-region_enabled = true
-region_rect = Rect2(336, 540, 92, 68)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1970010069]
 position = Vector2(-63, -35)
@@ -162,20 +160,85 @@ shape = SubResource("RectangleShape2D_kjvky")
 position = Vector2(639, 658)
 shape = SubResource("RectangleShape2D_obbqb")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1995123322]
-position = Vector2(981, -340)
+[node name="furniture" type="StaticBody2D" parent="." unique_id=1872050872]
+
+[node name="table" type="Sprite2D" parent="furniture" unique_id=704458905]
+position = Vector2(983, 353)
+scale = Vector2(0.9814817, 0.9814818)
+texture = ExtResource("2_xafmu")
+region_enabled = true
+region_rect = Rect2(16, 12, 224, 108)
+
+[node name="calendar" type="Sprite2D" parent="furniture/table" unique_id=1060890408]
+position = Vector2(47.886765, -56.03772)
+scale = Vector2(0.72532654, 0.72532654)
+texture = ExtResource("2_xafmu")
+region_enabled = true
+region_rect = Rect2(328, 12, 108, 104)
+
+[node name="counter" type="Sprite2D" parent="furniture" unique_id=1765175911]
+position = Vector2(630.00006, 600)
+scale = Vector2(1.25, 1.25)
+texture = SubResource("CompressedTexture2D_6ic1j")
+region_enabled = true
+region_rect = Rect2(592, 284, 92, 68)
+
+[node name="Sprite2D" type="Sprite2D" parent="furniture/counter" unique_id=890877636]
+position = Vector2(262.29996, -5.9604645e-06)
+scale = Vector2(4.37, 1)
+texture = SubResource("CompressedTexture2D_6ic1j")
+region_enabled = true
+region_rect = Rect2(76, 540, 100, 68)
+
+[node name="Sprite2D2" type="Sprite2D" parent="furniture/counter" unique_id=335108285]
+position = Vector2(523.9999, 0)
+texture = ExtResource("2_xafmu")
+region_enabled = true
+region_rect = Rect2(336, 540, 92, 68)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="furniture" unique_id=1995123322]
+position = Vector2(981, 300)
 scale = Vector2(0.9814817, 0.9814818)
 shape = SubResource("RectangleShape2D_irjyc")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2063289630]
-position = Vector2(1257.9999, 357.00003)
-scale = Vector2(1.9999999, 1.9999999)
-zoom = Vector2(0.75, 0.75)
-limit_left = 0
-limit_top = -1
-limit_right = 1344
-limit_bottom = 1147
-editor_draw_limits = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture" unique_id=1635336859]
+position = Vector2(629, 105)
+shape = SubResource("RectangleShape2D_6ic1j")
+
+[node name="fridge" parent="furniture" unique_id=1332911703 instance=ExtResource("4_f74lx")]
+position = Vector2(630, 122)
+dialogue_resource = ExtResource("5_irjyc")
+dialogue_start = "fridge"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/fridge" unique_id=1085018394]
+position = Vector2(0, 75)
+shape = SubResource("CircleShape2D_irjyc")
+
+[node name="blue_stuff" parent="furniture" unique_id=1509158651 instance=ExtResource("4_f74lx")]
+position = Vector2(965, 126)
+dialogue_resource = ExtResource("5_irjyc")
+dialogue_start = "blue_stuff"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/blue_stuff" unique_id=322028726]
+position = Vector2(254, -67)
+shape = SubResource("CircleShape2D_ndrc3")
+
+[node name="calendar" parent="furniture" unique_id=1124292727 instance=ExtResource("4_f74lx")]
+dialogue_resource = ExtResource("5_irjyc")
+dialogue_start = "calendar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/calendar" unique_id=2043567617]
+position = Vector2(1042, 318)
+shape = SubResource("CircleShape2D_dpx5l")
+
+[node name="plant" parent="furniture" unique_id=1152141565 instance=ExtResource("4_f74lx")]
+position = Vector2(281, 15)
+dialogue_resource = ExtResource("5_irjyc")
+dialogue_start = "plant"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/plant" unique_id=2102767097]
+position = Vector2(1042, 318)
+shape = SubResource("CircleShape2D_dpx5l")
 
 [node name="ray" type="AnimatedSprite2D" parent="." unique_id=240413593]
 visible = false
@@ -221,6 +284,8 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="to_store_center" parent="." unique_id=858912569 instance=ExtResource("7_xafmu")]
 position = Vector2(307, 1038)
+monitoring = false
+monitorable = false
 target_path = "uid://mumltbjr2v42"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_store_center" unique_id=1306937222]
@@ -234,13 +299,3 @@ target_path = "uid://bicobqotkvk6h"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_room" unique_id=1189920689]
 position = Vector2(-653, 267.75)
 shape = SubResource("RectangleShape2D_xafmu")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=436425148]
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1133098231]
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 100
-text = "lollllsfsdj"

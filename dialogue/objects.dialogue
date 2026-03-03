@@ -3,7 +3,7 @@
 : One of the boxes is open.
 
 : Check what's inside?
-- Sure => gun
+- Sure [if not State.has_gun] => gun
 - Nah
 => END
 
@@ -23,6 +23,8 @@
 : Would you like to take it?
 - Sure
 	: You took the gun with you.
+	set State.has_gun = true
+	do QuestManager.emit_signal("got_gun")
 - Nah
 => END
 
@@ -58,20 +60,26 @@ else:
 
 ~ cactus
 : It's a small cactus! I'll have to be careful when picking it up...
-: But my hands are full since I'm already carryinng this other plant... [if State.temp_inventory.has("strange_plant")] => END
 
-- Take this plant
+if State.temp_inventory.has("strange_plant"):
+	: But my hands are full since I'm already carrying this other plant...
+	=> END
+
+: Take this plant?
+- Yes
 	: You took the plant.
 	do State.temp_inventory.append("cactus")
 - Leave it
 => END 
 
-~ potted_plant
+~ strange_plant
 : A potted plant...
 : If Ray likes gardening, then he might like this one.
-: But my hands are full since I'm already carryinng this cactus... [if State.temp_inventory.has("cactus")] => END
-: Take this plant? 
+if State.temp_inventory.has("cactus"):
+	: But my hands are full since I'm already carrying this cactus...
+	=> END
 
+: Take this plant? 
 - Yes
 	: You took the plant.
 	do State.temp_inventory.append("strange_plant")
@@ -103,6 +111,8 @@ if not (State.rabbit_amount == 2):
 		: I hope Ray likes it.
 	
 	set State.rabbit_amount += 1
+	if State.rabbit_amount == 2:
+		do QuestManager.emit_signal("got_rabbits")
 else:
 	: I won't need any more rabbits to make stew.
 => END

@@ -13,7 +13,9 @@ Asher: Anything you're interested in?
 - Nevermind...
 
 Asher: Let me know if you need anything else.
-	
+
+if State.gifts_inventory.size() == 2: 
+	do QuestManager.emit_signal("got_gifts")
 => END
 
 ~ boy
@@ -23,9 +25,14 @@ Boy: These plushies are kinda cute! My best friend likes dolls, though. I think 
 ~ plant_store
 - I'd like to buy this plant. [if State.temp_inventory.has("strange_plant")]
 	do State.temp_inventory.erase("strange_plant")
+	do State.gifts_inventory.append("strange_plant")
 - I'd like to buy this cactus. [if State.temp_inventory.has("cactus")]
 	do State.temp_inventory.erase("cactus")
+	do State.gifts_inventory.append("cactus")
 - Nevermind...
+
+if State.gifts_inventory.size() == 2: 
+	do QuestManager.emit_signal("got_gifts")
 => END
 
 ~ rose_girl
@@ -36,5 +43,6 @@ Girl: I wanna get these flowers for my momma. She loooves red. Aren't they nice?
 - I'd like to buy some carrots. [if State.temp_inventory.has("carrots")]
 	set State.has_carrots = true
 	do State.temp_inventory.erase("carrots")
+	#do QuestManager.emit_signal("got_carrots")
 - Nevermind...
 => END

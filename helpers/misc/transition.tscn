@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccqh7cajmkwxs"]
 
-[ext_resource type="Script" uid="uid://dj2ucoakxef2" path="res://helpers/transition.gd" id="1_36eiu"]
+[ext_resource type="Script" uid="uid://dj2ucoakxef2" path="res://helpers/misc/transition.gd" id="1_36eiu"]
 
 [node name="Transition" type="Area2D" unique_id=858912569]
 script = ExtResource("1_36eiu")

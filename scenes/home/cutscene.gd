@@ -1,6 +1,5 @@
 extends Node2D
 
-
 func _ready() -> void:
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/day.dialogue"), "start")
 	await DialogueManager.dialogue_ended
@@ -12,3 +11,4 @@ func _ready() -> void:
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/day.dialogue"), "henry_room")
 	await DialogueManager.dialogue_ended
 	State.can_interact = true
+	

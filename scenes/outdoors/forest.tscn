@@ -62,16 +62,3 @@ sprite_frames = SubResource("SpriteFrames_bgcxa")
 
 [node name="bun_spawn_point" type="Marker2D" parent="." unique_id=2089653835]
 position = Vector2(148, 558)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1668968639]
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1439362720]
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 1.0
-offset_right = 2.0
-offset_bottom = 138.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 100
-text = "objective: make rabbit stew for dinner"
-horizontal_alignment = 1

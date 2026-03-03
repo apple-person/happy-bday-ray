@@ -1,0 +1,40 @@
+~ start
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => start
+- End the conversation => END
+Nathan: For more information see the online documentation.
+=> END
+
+~ plant
+: Ray's been attached to this thing.
+: He insisted on moving in with it.
+: ... I wonder what's so special about it?
+
+do QuestManager.emit_signal("got_hint")
+=> END
+
+~ blue_stuff
+: Huh... 
+: I never realized how much [i]blue[/i] was around here. 
+: Maybe that's something he likes? 
+
+do QuestManager.emit_signal("got_hint")
+=> END
+
+~ calendar
+: It's the calendar.
+: Keeps reminding me of my procrastination...
+=> END
+
+~ fridge
+: There are some magnets on the fridge. 
+: Nothing catches the eye. 
+: The fridge is empty, anyway. I should probably make some food. 
+
+do QuestManager.emit_signal("got_gun")
+=> END

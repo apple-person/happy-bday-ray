@@ -23,6 +23,8 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 State="*res://state.gd"
+Objectives="*uid://cb01pwj3vri18"
+QuestManager="*uid://dsfrcwuqo0p8p"
 
 [display]
 
@@ -77,7 +79,7 @@ ui_down={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/day.dialogue", "res://dialogue/objects.dialogue", "res://untitled.dialogue", "res://dialogue/npcs.dialogue", "res://happy-bday-ray-2/untitled.dialogue", "res://happy-bday-ray-2/dialogue/objects.dialogue", "res://happy-bday-ray-2/dialogue/day.dialogue", "res://happy-bday-ray-2/dialogue/npcs.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/day.dialogue", "res://dialogue/objects.dialogue", "res://untitled.dialogue", "res://dialogue/npcs.dialogue", "res://dialogue/hints.dialogue")
 
 [layer_names]
 

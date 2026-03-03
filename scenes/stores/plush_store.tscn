@@ -5,14 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://c4o3fp1bh1sc7" path="res://spritesheets/props/New Piskel-1.png-1.png-3.png" id="3_7pf7o"]
 [ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/characters/henry.tscn" id="3_aa5bk"]
 [ext_resource type="Texture2D" uid="uid://d28cvq85bau0s" path="res://spritesheets/gifts/cat_plush.png" id="4_4qoey"]
-[ext_resource type="PackedScene" uid="uid://bcpmxgkdw2qag" path="res://helpers/actionable.tscn" id="5_schgl"]
+[ext_resource type="PackedScene" uid="uid://bcpmxgkdw2qag" path="res://helpers/misc/actionable.tscn" id="5_schgl"]
 [ext_resource type="Resource" uid="uid://b517bctwbt3i0" path="res://dialogue/objects.dialogue" id="6_7rpmi"]
 [ext_resource type="Texture2D" uid="uid://cn6mrjy58kqqn" path="res://spritesheets/props/object.png" id="7_g25np"]
 [ext_resource type="Texture2D" uid="uid://cgpxsceqdi3px" path="res://spritesheets/gifts/haj_plush.png" id="7_schgl"]
 [ext_resource type="Resource" uid="uid://c0blu2o0p2i30" path="res://dialogue/npcs.dialogue" id="8_7rpmi"]
 [ext_resource type="Texture2D" uid="uid://dbeamcrcar6vj" path="res://spritesheets/characters/asher.png" id="9_phi08"]
 [ext_resource type="Texture2D" uid="uid://b5rn3h3qwe7r" path="res://spritesheets/characters/npcs.png" id="12_07auu"]
-[ext_resource type="PackedScene" uid="uid://ccqh7cajmkwxs" path="res://helpers/transition.tscn" id="13_vcl2d"]
+[ext_resource type="PackedScene" uid="uid://ccqh7cajmkwxs" path="res://helpers/misc/transition.tscn" id="13_vcl2d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(135.5, 2016)
@@ -99,8 +99,8 @@ size = Vector2(126, 103)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcl2d"]
 size = Vector2(451, 144)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwaqd"]
-size = Vector2(415, 108)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka5yq"]
+size = Vector2(353, 130)
 
 [node name="Node2D" type="Node2D" unique_id=723148842]
 script = ExtResource("1_dv7v5")
@@ -224,26 +224,26 @@ shape = SubResource("RectangleShape2D_75wvy")
 [node name="shelves2" type="StaticBody2D" parent="." unique_id=1039116821]
 
 [node name="TextureRect2" type="TextureRect" parent="shelves2" unique_id=197959608]
-offset_left = -636.0
-offset_top = -54.0
-offset_right = 395.0
-offset_bottom = 458.0
+offset_left = -631.0
+offset_top = -96.0
+offset_right = 400.0
+offset_bottom = 416.0
 texture = ExtResource("3_7pf7o")
 stretch_mode = 1
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="shelves2" unique_id=1689074210]
-position = Vector2(-128, 150.8125)
+position = Vector2(-123, 172)
 shape = SubResource("RectangleShape2D_g25np")
 
 [node name="static_cat" type="Node" parent="shelves2" unique_id=1590901600]
 
 [node name="Sprite2D" type="Sprite2D" parent="shelves2/static_cat" unique_id=1183214242]
-position = Vector2(19, 335)
+position = Vector2(21, 305)
 scale = Vector2(2, 2)
 texture = ExtResource("4_4qoey")
 
 [node name="Sprite2D2" type="Sprite2D" parent="shelves2/static_cat" unique_id=827872442]
-position = Vector2(125, 196)
+position = Vector2(133, 158)
 scale = Vector2(2, 2)
 texture = ExtResource("4_4qoey")
 
@@ -257,12 +257,12 @@ dialogue_resource = ExtResource("6_7rpmi")
 dialogue_start = "cat_plush"
 
 [node name="Sprite2D" type="Sprite2D" parent="cat" unique_id=615367677]
-position = Vector2(0, -6.500004)
+position = Vector2(1, -39.000004)
 scale = Vector2(2, 2)
 texture = ExtResource("4_4qoey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cat" unique_id=451982154]
-position = Vector2(-127.5, 67)
+position = Vector2(-123, -57)
 shape = SubResource("RectangleShape2D_vcl2d")
 
 [node name="Henry" parent="." unique_id=118152353 instance=ExtResource("3_aa5bk")]
@@ -287,3 +287,11 @@ region_rect = Rect2(128, 0, 128, 128)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boy" unique_id=1797686250]
 position = Vector2(-172, 1491)
 shape = SubResource("CircleShape2D_7pf7o")
+
+[node name="to_store_center" parent="." unique_id=858912569 instance=ExtResource("13_vcl2d")]
+position = Vector2(571, 663)
+target_path = "uid://mumltbjr2v42"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_store_center" unique_id=962385722]
+position = Vector2(-411, 44)
+shape = SubResource("RectangleShape2D_ka5yq")

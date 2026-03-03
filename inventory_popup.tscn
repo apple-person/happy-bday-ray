@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bygraxpwgv308"]
+
+[ext_resource type="Script" uid="uid://byykhipx86alf" path="res://title_screen.gd" id="1_t27wv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6p8y"]
+bg_color = Color(0.6004515, 0.8140459, 0.99890953, 1)
+
+[node name="TitleScreen" type="Control" unique_id=1952304901]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1020.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t27wv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=977194462]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1406893376]
+layout_mode = 0
+offset_right = 900.0
+offset_bottom = 1000.0
+color = Color(0.85517097, 0.99999994, 0.8394258, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1580588211]
+layout_mode = 0
+offset_right = 900.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="." unique_id=2040951255]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 840.0
+offset_right = 900.0
+offset_bottom = 943.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer2" unique_id=93527601]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Inventory" type="Button" parent="CenterContainer2/HBoxContainer" unique_id=524488584]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_v6p8y")
+text = "PLAY"
+
+[node name="Ray_Likes" type="Button" parent="CenterContainer2/HBoxContainer" unique_id=1852179954]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_v6p8y")
+text = "PLAY"
+
+[node name="Label2" type="Label" parent="." unique_id=638594886]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 140.0
+offset_right = 866.0
+offset_bottom = 799.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "- rahh
+- rah
+"
