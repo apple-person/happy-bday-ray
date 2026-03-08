@@ -7,6 +7,8 @@
 [ext_resource type="Resource" uid="uid://b517bctwbt3i0" path="res://dialogue/objects.dialogue" id="5_k4bsw"]
 [ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/characters/henry.tscn" id="5_tdbjt"]
 [ext_resource type="PackedScene" uid="uid://ccqh7cajmkwxs" path="res://helpers/misc/transition.tscn" id="6_0yiih"]
+[ext_resource type="Texture2D" uid="uid://bo0o0ifeqehte" path="res://spritesheets/gifts/plants.png" id="8_2cgc6"]
+[ext_resource type="PackedScene" uid="uid://bwybew3h0naix" path="res://helpers/misc/spawn_point.tscn" id="9_35m2g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obbqb"]
 size = Vector2(124.75, 1229)
@@ -26,11 +28,14 @@ size = Vector2(280, 82.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flgsc"]
 size = Vector2(123, 177)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cgc6"]
+size = Vector2(152, 242.5)
+
 [node name="Node2D" type="Node2D" unique_id=585751328]
 script = ExtResource("1_2cgc6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=968968780]
-position = Vector2(2076, 300)
+position = Vector2(2117, 299)
 scale = Vector2(2, 2)
 zoom = Vector2(0.56, 0.56)
 limit_left = 1190
@@ -59,6 +64,7 @@ position = Vector2(1125, 101)
 shape = SubResource("RectangleShape2D_obbqb")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1909337188]
+z_index = -2
 offset_left = 1189.0
 offset_top = 236.0
 offset_right = 2085.0
@@ -67,71 +73,71 @@ texture = ExtResource("1_1re2s")
 stretch_mode = 1
 
 [node name="Henry" parent="." unique_id=392257279 instance=ExtResource("5_tdbjt")]
-position = Vector2(1971, 353)
+position = Vector2(2012, 352)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Henry" unique_id=343445210]
 position = Vector2(105, -53)
 scale = Vector2(2, 2)
 remote_path = NodePath("../../Camera2D")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=51752514]
+[node name="boxes" type="StaticBody2D" parent="." unique_id=51752514]
 position = Vector2(1252, 718)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=333738928]
+[node name="Sprite2D" type="Sprite2D" parent="boxes" unique_id=333738928]
 position = Vector2(717, 150)
 texture = ExtResource("3_2ie47")
 region_enabled = true
 region_rect = Rect2(0, 12, 128, 116)
 
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D2" unique_id=2124545633]
+[node name="Sprite2D2" type="Sprite2D" parent="boxes" unique_id=2124545633]
 position = Vector2(591, 196)
 texture = ExtResource("3_2ie47")
 region_enabled = true
 region_rect = Rect2(136, 136, 112, 108)
 
-[node name="box_1" type="Node" parent="StaticBody2D2" unique_id=839914408]
+[node name="box_1" type="Node" parent="boxes" unique_id=839914408]
 
-[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D2/box_1" unique_id=567076969]
+[node name="Sprite2D3" type="Sprite2D" parent="boxes/box_1" unique_id=567076969]
 position = Vector2(1460, 390)
 texture = ExtResource("3_2ie47")
 region_enabled = true
 region_rect = Rect2(136, 136, 112, 108)
 
-[node name="Sprite2D4" type="Sprite2D" parent="StaticBody2D2/box_1" unique_id=1805913886]
+[node name="Sprite2D4" type="Sprite2D" parent="boxes/box_1" unique_id=1805913886]
 position = Vector2(1300, 419)
 texture = ExtResource("3_2ie47")
 region_enabled = true
 region_rect = Rect2(12, 156, 100, 68)
 
-[node name="Sprite2D5" type="Sprite2D" parent="StaticBody2D2/box_1" unique_id=1089389999]
+[node name="Sprite2D5" type="Sprite2D" parent="boxes/box_1" unique_id=1089389999]
 position = Vector2(1368, 451)
 texture = ExtResource("3_2ie47")
 region_enabled = true
 region_rect = Rect2(140, 32, 100, 64)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=858419085]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boxes" unique_id=858419085]
 position = Vector2(670, 214)
 shape = SubResource("RectangleShape2D_b00m1")
 
-[node name="Actionable" parent="StaticBody2D2/CollisionShape2D" unique_id=1237440174 instance=ExtResource("3_lus3q")]
+[node name="Actionable" parent="boxes/CollisionShape2D" unique_id=1237440174 instance=ExtResource("3_lus3q")]
 position = Vector2(-19, -35)
 dialogue_resource = ExtResource("5_k4bsw")
 dialogue_start = "box1"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/CollisionShape2D/Actionable" unique_id=297140092]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boxes/CollisionShape2D/Actionable" unique_id=297140092]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_5lyb0")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1002916722]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="boxes" unique_id=1002916722]
 position = Vector2(114, -297)
 shape = SubResource("RectangleShape2D_k4bsw")
 
-[node name="Actionable" parent="StaticBody2D2/CollisionShape2D2" unique_id=1021866361 instance=ExtResource("3_lus3q")]
+[node name="Actionable" parent="boxes/CollisionShape2D2" unique_id=1021866361 instance=ExtResource("3_lus3q")]
 position = Vector2(-3, -6)
 dialogue_resource = ExtResource("5_k4bsw")
 dialogue_start = "box2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/CollisionShape2D2/Actionable" unique_id=388139193]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boxes/CollisionShape2D2/Actionable" unique_id=388139193]
 position = Vector2(-1, -6)
 shape = SubResource("CircleShape2D_5lyb0")
 
@@ -140,7 +146,31 @@ position = Vector2(1416, 879)
 monitoring = false
 monitorable = false
 target_path = "uid://dtv6rh8epknlu"
+target_spawn_id = "from_room"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_home" unique_id=1790365180]
 position = Vector2(-49, -42)
 shape = SubResource("RectangleShape2D_flgsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="to_home" unique_id=278153188]
+z_index = -1
+position = Vector2(-48.00002, -51.999973)
+scale = Vector2(0.6499998, 0.6499998)
+texture = ExtResource("8_2cgc6")
+region_enabled = true
+region_rect = Rect2(104, 52, 195, 299)
+
+[node name="bed" parent="." unique_id=942976890 instance=ExtResource("3_lus3q")]
+dialogue_resource = ExtResource("5_k4bsw")
+dialogue_start = "make_bed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bed" unique_id=405207739]
+position = Vector2(2009, 357)
+shape = SubResource("RectangleShape2D_2cgc6")
+debug_color = Color(0, 1, 0.69803923, 0.41960785)
+
+[node name="SpawnPoints" type="Node" parent="." unique_id=1452021134]
+
+[node name="SpawnPoint" parent="SpawnPoints" unique_id=1956845949 instance=ExtResource("9_35m2g")]
+position = Vector2(1560, 823)
+spawn_id = "from_house"

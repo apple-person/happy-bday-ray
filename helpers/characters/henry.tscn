@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bsy2atfwo0fk7"]
+[gd_scene format=3 uid="uid://bsy2atfwo0fk7"]
 
 [ext_resource type="Script" uid="uid://dvrng6n5eubhf" path="res://helpers/characters/henry_movement.gd" id="1_jdwvl"]
 [ext_resource type="Texture2D" uid="uid://ep0jwviwyn56" path="res://spritesheets/characters/henry_spritesheet.png" id="2_xmiqw"]
@@ -329,26 +329,26 @@ _data = {
 &"up_walk": SubResource("Animation_ogqcr")
 }
 
-[node name="Henry" type="CharacterBody2D" groups=["player"]]
+[node name="Henry" type="CharacterBody2D" unique_id=1224386586 groups=["player"]]
 script = ExtResource("1_jdwvl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=783590915]
 z_index = 1
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_1bjdr")
 
-[node name="Direction" type="Marker2D" parent="."]
+[node name="Direction" type="Marker2D" parent="." unique_id=927493233]
 
-[node name="ActionableFinder" type="Area2D" parent="Direction"]
+[node name="ActionableFinder" type="Area2D" parent="Direction" unique_id=1682946279]
 position = Vector2(-3, -1)
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder" unique_id=291449229]
 light_mask = 16
 position = Vector2(4, 107)
 shape = SubResource("CircleShape2D_5i5tf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1781693843]
 position = Vector2(3.9999995, 0)
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("2_xmiqw")
@@ -356,8 +356,6 @@ flip_h = true
 region_enabled = true
 region_rect = Rect2(20, 8, 80, 108)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=126408743]
 root_node = NodePath("../Sprite2D")
-libraries = {
-&"": SubResource("AnimationLibrary_tpa1e")
-}
+libraries/ = SubResource("AnimationLibrary_tpa1e")

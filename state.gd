@@ -1,8 +1,8 @@
 extends Node
 
 var can_interact: bool = true
+var spawn_id = ""
 
-var met_ray: bool = false
 var rabbit_amount: int = 0
 var has_carrots: bool = false
 var has_gun: bool = false
@@ -10,6 +10,7 @@ var has_gun: bool = false
 var temp_inventory = []
 var gifts_inventory = []
 var totalPoints = 0
+var known_likes = []
 
 const gifts_points = {
 	"strange_plant" = 15,

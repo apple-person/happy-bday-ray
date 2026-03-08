@@ -5,68 +5,104 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6p8y"]
 bg_color = Color(0.6004515, 0.8140459, 0.99890953, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t27wv"]
+bg_color = Color(1, 0.6874536, 0.7655715, 1)
+
 [node name="TitleScreen" type="Control" unique_id=1952304901]
+z_index = 100
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1020.0
-offset_bottom = -80.0
+anchor_left = 0.25
+anchor_right = 0.737
+anchor_bottom = 0.901
+offset_left = 9.0
+offset_top = 43.0
+offset_right = -26.04004
+offset_bottom = 69.91998
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t27wv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=977194462]
+scale = Vector2(0.9, 0.9)
+transform = Transform2D(0.9, 0, 0, 0.9, 0, 0)
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1406893376]
-layout_mode = 0
-offset_right = 900.0
-offset_bottom = 1000.0
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1406893376]
+offset_left = 607.77783
+offset_top = 84.44444
+offset_right = 1507.7778
+offset_bottom = 1084.4445
 color = Color(0.85517097, 0.99999994, 0.8394258, 1)
 
-[node name="Label" type="Label" parent="." unique_id=1580588211]
-layout_mode = 0
-offset_right = 900.0
-offset_bottom = 150.0
+[node name="Title_Label" type="Label" parent="CanvasLayer" unique_id=1580588211]
+offset_left = 607.77783
+offset_top = 84.44444
+offset_right = 1507.7778
+offset_bottom = 234.44444
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "Inventory"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CenterContainer2" type="CenterContainer" parent="." unique_id=2040951255]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 840.0
-offset_right = 900.0
-offset_bottom = 943.0
+[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer" unique_id=2040951255]
+offset_left = 608.77783
+offset_top = 876.44446
+offset_right = 1507.7778
+offset_bottom = 1086.4445
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer2" unique_id=93527601]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer2" unique_id=72499671]
 layout_mode = 2
-theme_override_constants/separation = 200
+theme_override_constants/separation = 20
 
-[node name="Inventory" type="Button" parent="CenterContainer2/HBoxContainer" unique_id=524488584]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer2/VBoxContainer" unique_id=93527601]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 75
-theme_override_styles/normal = SubResource("StyleBoxFlat_v6p8y")
-text = "PLAY"
+theme_override_constants/separation = 20
 
-[node name="Ray_Likes" type="Button" parent="CenterContainer2/HBoxContainer" unique_id=1852179954]
+[node name="inventory" type="Button" parent="CanvasLayer/CenterContainer2/VBoxContainer/HBoxContainer" unique_id=524488584]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_v6p8y")
-text = "PLAY"
+text = "Inventory"
 
-[node name="Label2" type="Label" parent="." unique_id=638594886]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 140.0
-offset_right = 866.0
-offset_bottom = 799.0
+[node name="ray_likes" type="Button" parent="CanvasLayer/CenterContainer2/VBoxContainer/HBoxContainer" unique_id=1852179954]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_v6p8y")
+text = "Things Ray Likes"
+
+[node name="quit" type="Button" parent="CanvasLayer/CenterContainer2/VBoxContainer" unique_id=1937327007]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 20
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_t27wv")
+text = "Quit"
+
+[node name="Inventory_Items" type="Label" parent="CanvasLayer" unique_id=638594886]
+offset_left = 640.0
+offset_top = 225.0
+offset_right = 1472.0
+offset_bottom = 884.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
-text = "- rahh
-- rah
+text = "- inventory
 "
+
+[node name="Ray_Likes" type="Label" parent="CanvasLayer" unique_id=917752289]
+visible = false
+offset_left = 640.0
+offset_top = 225.0
+offset_right = 1472.0
+offset_bottom = 884.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "- likes
+"
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer2/VBoxContainer/HBoxContainer/inventory" to="." method="_on_inventory_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer2/VBoxContainer/HBoxContainer/ray_likes" to="." method="_on_ray_likes_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer2/VBoxContainer/quit" to="." method="_on_quit_pressed"]

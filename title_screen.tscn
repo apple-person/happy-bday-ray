@@ -5,6 +5,9 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6p8y"]
 bg_color = Color(0.6004515, 0.8140459, 0.99890953, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ak2if"]
+bg_color = Color(1, 0.6862745, 0.7647059, 1)
+
 [node name="TitleScreen" type="Control" unique_id=1952304901]
 custom_minimum_size = Vector2(1980, 1080)
 layout_mode = 3
@@ -63,7 +66,7 @@ text = "CREDITS"
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 75
-theme_override_styles/normal = SubResource("StyleBoxFlat_v6p8y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ak2if")
 text = "QUIT
 "
 

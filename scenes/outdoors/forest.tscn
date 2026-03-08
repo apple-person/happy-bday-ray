@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bu7avuf7o628m" path="res://spritesheets/textures/grass_texture.png" id="2_58aay"]
 [ext_resource type="PackedScene" uid="uid://dui0qf84brbom" path="res://helpers/hunting_game/bunny.tscn" id="2_g0ld8"]
 [ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/characters/henry.tscn" id="3_g0ld8"]
+[ext_resource type="PackedScene" uid="uid://ccqh7cajmkwxs" path="res://helpers/misc/transition.tscn" id="5_g0ld8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(135.5, 2016)
@@ -12,6 +13,9 @@ size = Vector2(135.5, 2016)
 size = Vector2(3013.5, 138)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bgcxa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4w0g8"]
+size = Vector2(267.5, 272)
 
 [node name="Node2D" type="Node2D" unique_id=788383138]
 script = ExtResource("1_4nbug")
@@ -62,3 +66,11 @@ sprite_frames = SubResource("SpriteFrames_bgcxa")
 
 [node name="bun_spawn_point" type="Marker2D" parent="." unique_id=2089653835]
 position = Vector2(148, 558)
+
+[node name="to_store_center" parent="." unique_id=858912569 instance=ExtResource("5_g0ld8")]
+target_path = "uid://mumltbjr2v42"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_store_center" unique_id=473738814]
+position = Vector2(-1176.75, -766)
+shape = SubResource("RectangleShape2D_4w0g8")
+debug_color = Color(1, 0.6, 0.69803923, 0.41960785)

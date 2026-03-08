@@ -36,7 +36,7 @@ if State.gifts_inventory.size() == 2:
 => END
 
 ~ rose_girl
-Girl: I wanna get these flowers for my momma. She loooves red. Aren't they nice?
+Girl: I wanna get these plant for my momma. She loooves pink. Aren't the flowers nice?
 => END
 
 ~ grocery_store

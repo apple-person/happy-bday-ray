@@ -16,6 +16,8 @@ Nathan: For more information see the online documentation.
 : ... I wonder what's so special about it?
 
 do QuestManager.emit_signal("got_hint")
+if not State.known_likes.has("Plants"):
+	do State.known_likes.append("Plants")
 => END
 
 ~ blue_stuff
@@ -24,6 +26,8 @@ do QuestManager.emit_signal("got_hint")
 : Maybe that's something he likes? 
 
 do QuestManager.emit_signal("got_hint")
+if not State.known_likes.has("Blue things"):
+	do State.known_likes.append("Blue things")
 => END
 
 ~ calendar
@@ -36,5 +40,4 @@ do QuestManager.emit_signal("got_hint")
 : Nothing catches the eye. 
 : The fridge is empty, anyway. I should probably make some food. 
 
-do QuestManager.emit_signal("got_gun")
 => END

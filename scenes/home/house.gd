@@ -1,12 +1,17 @@
 extends Node2D
 
-var started_looking := true 
 @onready var to_store_center := $to_store_center
 @onready var ray := $ray
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if started_looking:
+	for spawn in $SpawnPoints.get_children():
+		print(spawn.spawn_id, State.spawn_id)
+		if spawn.spawn_id == State.spawn_id:
+			$Henry.global_position = spawn.global_position
+			break
+	
+	if not QuestManager.hints_found:
 		State.can_interact = false
 		
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/day.dialogue"), "looking_around")
@@ -16,9 +21,4 @@ func _ready() -> void:
 		
 		await QuestManager.got_hint
 		
-		to_store_center.set_deferred('monitoring', true)
-		to_store_center.set_deferred('monitorable', true)
-
-
-	if State.gifts_inventory.size() == 2:
-		ray.visible = true
+	to_store_center.open_area()

@@ -12,6 +12,7 @@ func _ready() -> void:
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
 var gun: Node2D = null
+var in_menu := false
 
 var current_anim: String = ""
 var last_dir := Vector2.DOWN
@@ -82,6 +83,12 @@ func _physics_process(delta: float) -> void:
 			gun.shoot()
 			
 		return
+	if Input.is_action_just_pressed("ui_menu") and not in_menu:
+		in_menu = true
+		var menu = preload("res://inventory_popup.tscn")
+		var instance = menu.instantiate()
+		get_tree().current_scene.add_child(instance)
+		instance.tree_exited.connect(_on_menu_closed)
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -92,3 +99,6 @@ func _physics_process(delta: float) -> void:
 
 		
 	move_and_slide() # god it topok me way to long to figure this last partt out 
+
+func _on_menu_closed():
+	in_menu = false

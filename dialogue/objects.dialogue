@@ -18,13 +18,21 @@
 - Nah
 => END
 
+~ make_bed 
+: Would you like to make your bed?
+- Yes
+	: You made your bed.
+	: It looks much better now.
+	do QuestManager.emit_signal("ready_for_day")
+- No
+=> END
+
 ~ gun
 : It's your trusty gun!
 : Would you like to take it?
 - Sure
 	: You took the gun with you.
 	set State.has_gun = true
-	do QuestManager.emit_signal("got_gun")
 - Nah
 => END
 
@@ -38,6 +46,12 @@ if State.has_carrots == true && State.rabbit_amount == 2:
 		set State.rabbit_amount = 0
 		do State.gifts_inventory.append("stew") 
 	- Eh, nah. => END
+elseif State.gifts_inventory.size() == 2:
+	: I don't have anything to cook right now, but I can go get some ingredients.
+	: Would you like to cook?
+	- Yes
+		do QuestManager.emit_signal("sleep_or_cook") 
+	- No => END! 
 else:
 	: Unfortunately, it doesn't look like I have anything to cut right now.
 => END 
@@ -59,7 +73,7 @@ else:
 => END
 
 ~ cactus
-: It's a small cactus! I'll have to be careful when picking it up...
+: It's a cactus! I'll have to be careful when picking it up...
 
 if State.temp_inventory.has("strange_plant"):
 	: But my hands are full since I'm already carrying this other plant...
@@ -84,6 +98,10 @@ if State.temp_inventory.has("cactus"):
 	: You took the plant.
 	do State.temp_inventory.append("strange_plant")
 - Leave it 
+=> END
+
+~ growing_center
+: Looks like they're growing some young plants here... 
 => END
 
 ~ produce
@@ -115,4 +133,15 @@ if not (State.rabbit_amount == 2):
 		do QuestManager.emit_signal("got_rabbits")
 else:
 	: I won't need any more rabbits to make stew.
+=> END
+
+~ go_sleep
+if State.gifts_inventory.size() >= 2:
+	: Would you like to go to sleep?
+	- Yes
+		do QuestManager.sleep = true
+		do QuestManager.emit_signal("sleep_or_cook")
+	- No
+else:
+	: Hey, don't go to bed! You've got other things to do.
 => END

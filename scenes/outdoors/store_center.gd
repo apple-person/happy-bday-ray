@@ -3,6 +3,10 @@ extends Node2D
 @onready var to_home := $to_home
 
 func _ready() -> void:
-	await QuestManager.got_gifts
-	to_home.set_deferred("monitorable", true)
-	to_home.set_deferred("monitoring", true)
+	if State.gifts_inventory.size() >= 2: 
+		to_home.open_area()
+	
+	for spawn in $SpawnPoints.get_children():
+		if spawn.spawn_id == State.spawn_id:
+			$Henry.global_position = spawn.global_position
+			break

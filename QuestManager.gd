@@ -1,5 +1,6 @@
 extends Node
 
+signal ready_for_day
 signal got_gun
 signal got_rabbits
 signal got_carrots
@@ -8,22 +9,26 @@ signal got_hint
 
 signal sleep_or_cook
 
-var sleep := false
+var bed_made := false
+var hints_found := false 
+var sleep := false 
 
 func get_ready_quest():
 	Objectives.set_objective("get ready for the day!", "press space to interact with objects")
-	await got_gun
+	await ready_for_day
 	
 	Objectives.complete_objective()
+	bed_made = true
 	await get_tree().create_timer(3.0).timeout
 	get_hints()
 
 func get_hints():
-	Objectives.set_objective("figure out what Ray likes!", "find at least one hint from the home.")
+	Objectives.set_objective("figure out what Ray likes!", "find at least one hint. press z to check your inventory.")
 	await got_hint
 	Objectives.complete_objective()
 	
 	await get_tree().create_timer(3.0).timeout
+	hints_found = true
 	get_gifts_quest()
 
 func get_gifts_quest():
@@ -39,7 +44,7 @@ func choice_quest():
 	await sleep_or_cook
 	
 	if sleep:
-		pass
+		normal_ending()
 	else:
 		get_stew_quest()
 	
@@ -49,7 +54,12 @@ func get_stew_quest():
 	await got_carrots
 	Objectives.complete_objective()
 	
-	Objectives.set_objective("i should make some special rabbit stew.", "hunting time!!1!")
+	Objectives.set_objective("i should make some special rabbit stew.", "...but i need my gun.")
+	if not State.has_gun:
+		await got_gun
+	Objectives.complete_objective()
+	
+	Objectives.set_objective("hunt rabbits", "hunting time!!1! head to the forest!")
 	await got_rabbits
 	Objectives.complete_objective()
 	
@@ -61,3 +71,6 @@ func true_ending():
 	await got_carrots
 	Objectives.complete_objective()
 	await get_tree().create_timer(3.0).timeout
+	
+func normal_ending():
+	pass

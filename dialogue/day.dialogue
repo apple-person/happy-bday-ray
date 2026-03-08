@@ -18,6 +18,11 @@
 : I guess I could try looking around for clues?
 => END 
 
+~ day_2
+: It's Ray's birthday!...
+: I'll go downstairs and give him his things.
+=> END 
+
 ~ gifts_start
 Ray: Hi, Henry! 
 Ray: You... got presents for me? 
