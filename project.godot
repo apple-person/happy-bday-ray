@@ -22,7 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-State="*res://state.gd"
+State="*res://screens/state.gd"
 Objectives="*uid://cb01pwj3vri18"
 QuestManager="*uid://dsfrcwuqo0p8p"
 
@@ -30,7 +30,6 @@ QuestManager="*uid://dsfrcwuqo0p8p"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=4
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
@@ -85,7 +84,7 @@ ui_menu={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/day.dialogue", "res://dialogue/objects.dialogue", "res://untitled.dialogue", "res://dialogue/npcs.dialogue", "res://dialogue/hints.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/day.dialogue", "res://dialogue/objects.dialogue", "res://dialogue/npcs.dialogue", "res://dialogue/hints.dialogue", "res://screens/untitled.dialogue")
 
 [layer_names]
 

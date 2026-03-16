@@ -9,15 +9,21 @@
 [ext_resource type="Resource" uid="uid://dfce6dyaiu6ca" path="res://dialogue/hints.dialogue" id="5_irjyc"]
 [ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/characters/henry.tscn" id="5_ptc3g"]
 [ext_resource type="Resource" uid="uid://b517bctwbt3i0" path="res://dialogue/objects.dialogue" id="6_mq0yv"]
+[ext_resource type="Texture2D" uid="uid://d15jucvel7o0a" path="res://spritesheets/props/fridge.png" id="6_v6ly1"]
+[ext_resource type="Texture2D" uid="uid://ckj8nmjau0p5b" path="res://spritesheets/gifts/potted_plant.png" id="7_64tlk"]
 [ext_resource type="PackedScene" uid="uid://ccqh7cajmkwxs" path="res://helpers/misc/transition.tscn" id="7_xafmu"]
 [ext_resource type="Texture2D" uid="uid://bo0o0ifeqehte" path="res://spritesheets/gifts/plants.png" id="11_dpx5l"]
 [ext_resource type="PackedScene" uid="uid://bwybew3h0naix" path="res://helpers/misc/spawn_point.tscn" id="12_ndrc3"]
+[ext_resource type="AudioStream" uid="uid://jbc0pnsqhcb1" path="res://music/home.ogg" id="15_v6ly1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obbqb"]
 size = Vector2(124.75, 1229)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjvky"]
 size = Vector2(2019.375, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64tlk"]
+size = Vector2(110, 98)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6ic1j"]
 load_path = "res://.godot/imported/home_furniture.png-172e19154b80f71074d91c0d8bb8bd75.ctex"
@@ -26,7 +32,7 @@ load_path = "res://.godot/imported/home_furniture.png-172e19154b80f71074d91c0d8b
 size = Vector2(217.2265, 17.830185)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ic1j"]
-size = Vector2(139, 210)
+size = Vector2(156, 119)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_irjyc"]
 radius = 59.211487
@@ -37,27 +43,33 @@ radius = 65.192024
 [sub_resource type="CircleShape2D" id="CircleShape2D_dpx5l"]
 radius = 71.063354
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wcu0q"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_861ju"]
+size = Vector2(111.25, 33.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6ly1"]
+size = Vector2(46, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64tlk"]
 atlas = ExtResource("3_3bgk5")
-region = Rect2(128, 0, 128, 128)
+region = Rect2(384, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwc8c"]
 atlas = ExtResource("3_3bgk5")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mhx8p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_861ju"]
 atlas = ExtResource("3_3bgk5")
-region = Rect2(0, 128, 128, 128)
+region = Rect2(512, 128, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_65la3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6ly1"]
 atlas = ExtResource("3_3bgk5")
-region = Rect2(128, 128, 128, 128)
+region = Rect2(0, 256, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qcuhb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wcu0q")
+"texture": SubResource("AtlasTexture_64tlk")
 }],
 "loop": true,
 "name": &"blushing",
@@ -73,21 +85,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mhx8p")
+"texture": SubResource("AtlasTexture_861ju")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_65la3")
+"texture": SubResource("AtlasTexture_v6ly1")
 }],
 "loop": true,
 "name": &"shining",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bgk5"]
-size = Vector2(70.42857, 114.71428)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_7685u"]
-radius = 46.458282
+radius = 20.396078
 
 [sub_resource type="GDScript" id="GDScript_kycn3"]
 script/source = "extends Area2D
@@ -107,7 +116,7 @@ radius = 46.458282
 size = Vector2(216.5, 101)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xafmu"]
-size = Vector2(201.25, 330.5)
+size = Vector2(174.625, 144.75)
 
 [node name="Node2D" type="Node2D" unique_id=8617118]
 script = ExtResource("1_6ic1j")
@@ -126,7 +135,7 @@ texture = ExtResource("1_3bgk5")
 stretch_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2063289630]
-position = Vector2(1257.9999, 357.00003)
+position = Vector2(703, 812.0001)
 scale = Vector2(1.9999999, 1.9999999)
 zoom = Vector2(0.75, 0.75)
 limit_left = 0
@@ -161,6 +170,11 @@ shape = SubResource("RectangleShape2D_kjvky")
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1141899531]
 position = Vector2(639, 658)
 shape = SubResource("RectangleShape2D_obbqb")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=495734963]
+visible = false
+position = Vector2(844, -342)
+shape = SubResource("RectangleShape2D_64tlk")
 
 [node name="furniture" type="StaticBody2D" parent="." unique_id=1872050872]
 
@@ -204,7 +218,7 @@ scale = Vector2(0.9814817, 0.9814818)
 shape = SubResource("RectangleShape2D_irjyc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="furniture" unique_id=1635336859]
-position = Vector2(629, 105)
+position = Vector2(552, 56)
 shape = SubResource("RectangleShape2D_6ic1j")
 
 [node name="fridge" parent="furniture" unique_id=1332911703 instance=ExtResource("4_f74lx")]
@@ -213,8 +227,15 @@ dialogue_resource = ExtResource("5_irjyc")
 dialogue_start = "fridge"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/fridge" unique_id=1085018394]
-position = Vector2(0, 75)
+position = Vector2(-81, 94)
 shape = SubResource("CircleShape2D_irjyc")
+
+[node name="Sprite2D" type="Sprite2D" parent="furniture/fridge" unique_id=998465552]
+position = Vector2(-79.999985, 12.999994)
+scale = Vector2(1.2473595, 1.4926575)
+texture = ExtResource("6_v6ly1")
+region_enabled = true
+region_rect = Rect2(0, 32, 128, 192)
 
 [node name="blue_stuff" parent="furniture" unique_id=1509158651 instance=ExtResource("4_f74lx")]
 position = Vector2(965, 126)
@@ -225,6 +246,13 @@ dialogue_start = "blue_stuff"
 position = Vector2(254, -67)
 shape = SubResource("CircleShape2D_ndrc3")
 
+[node name="Sprite2D" type="Sprite2D" parent="furniture/blue_stuff" unique_id=1520578712]
+position = Vector2(250.00002, -50.000004)
+scale = Vector2(0.42399186, 0.42399186)
+texture = ExtResource("11_dpx5l")
+region_enabled = true
+region_rect = Rect2(65, 455, 273, 299)
+
 [node name="calendar" parent="furniture" unique_id=1124292727 instance=ExtResource("4_f74lx")]
 dialogue_resource = ExtResource("5_irjyc")
 dialogue_start = "calendar"
@@ -234,34 +262,40 @@ position = Vector2(1042, 318)
 shape = SubResource("CircleShape2D_dpx5l")
 
 [node name="plant" parent="furniture" unique_id=1152141565 instance=ExtResource("4_f74lx")]
-position = Vector2(281, 15)
+position = Vector2(1308, 212)
 dialogue_resource = ExtResource("5_irjyc")
 dialogue_start = "plant"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="furniture/plant" unique_id=2102767097]
-position = Vector2(1042, 318)
+position = Vector2(4, 81)
 shape = SubResource("CircleShape2D_dpx5l")
+
+[node name="Sprite2D" type="Sprite2D" parent="furniture/plant" unique_id=1819624908]
+position = Vector2(-3, 77)
+texture = ExtResource("7_64tlk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="furniture" unique_id=1553232432]
+position = Vector2(1211.375, 76.375)
+shape = SubResource("RectangleShape2D_861ju")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="furniture" unique_id=1395176927]
+position = Vector2(1302, 297)
+shape = SubResource("RectangleShape2D_v6ly1")
 
 [node name="ray" type="AnimatedSprite2D" parent="." unique_id=240413593]
 visible = false
-position = Vector2(300, 288.00003)
+position = Vector2(848, 343.00003)
 scale = Vector2(1.75, 1.75)
 sprite_frames = SubResource("SpriteFrames_qcuhb")
-
-[node name="Area2D" type="Area2D" parent="ray" unique_id=784378897]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ray/Area2D" unique_id=1608554897]
-position = Vector2(-1.5, 8.928513)
-scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("RectangleShape2D_3bgk5")
 
 [node name="Actionable2" parent="ray" unique_id=1229014144 instance=ExtResource("4_f74lx")]
 position = Vector2(-0.5, 0)
 scale = Vector2(0.99999994, 0.99999994)
 dialogue_resource = ExtResource("5_f74lx")
+dialogue_start = "gifts_start"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ray/Actionable2" unique_id=2089293000]
-position = Vector2(-2.357143, 50.285698)
+position = Vector2(-2.357143, 50.285706)
 shape = SubResource("CircleShape2D_7685u")
 
 [node name="cutting_board" parent="." unique_id=94675225 instance=ExtResource("4_f74lx")]
@@ -276,11 +310,11 @@ position = Vector2(371.85715, 178.85712)
 shape = SubResource("CircleShape2D_xafmu")
 
 [node name="Henry" parent="." unique_id=639905354 instance=ExtResource("5_ptc3g")]
-position = Vector2(182, 794)
+position = Vector2(307, 695)
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Henry" unique_id=783690358]
-position = Vector2(1076, -437)
+position = Vector2(396, 117.00012)
 scale = Vector2(2, 2)
 remote_path = NodePath("../../Camera2D")
 
@@ -307,15 +341,27 @@ target_path = "uid://bicobqotkvk6h"
 target_spawn_id = "from_house"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_room" unique_id=1189920689]
-position = Vector2(-653, 267.75)
+position = Vector2(-635.3125, 177.375)
 shape = SubResource("RectangleShape2D_xafmu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="to_room" unique_id=44660047]
+position = Vector2(-643, 228)
+scale = Vector2(0.6499998, 0.6499998)
+texture = ExtResource("11_dpx5l")
+region_enabled = true
+region_rect = Rect2(416, 52, 299, 351)
 
 [node name="SpawnPoints" type="Node" parent="." unique_id=328600064]
 
 [node name="from_room" parent="SpawnPoints" unique_id=1956845949 instance=ExtResource("12_ndrc3")]
-position = Vector2(101, 494)
+position = Vector2(125, 404)
 spawn_id = "from_room"
 
 [node name="from_center" parent="SpawnPoints" unique_id=1180084614 instance=ExtResource("12_ndrc3")]
 position = Vector2(300, 840)
 spawn_id = "from_center"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=424900809]
+stream = ExtResource("15_v6ly1")
+volume_db = -10.0
+autoplay = true

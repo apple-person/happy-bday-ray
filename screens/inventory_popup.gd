@@ -1,16 +1,18 @@
 extends Control
 
-var house_scene = preload("res://scenes/home/cutscene.tscn")
 @onready var title_label = $CanvasLayer/Title_Label
 @onready var inventory_items = $CanvasLayer/Inventory_Items
 @onready var ray_likes = $CanvasLayer/Ray_Likes
+@onready var equip_gun = $CanvasLayer/CenterContainer2/VBoxContainer/HBoxContainer3/equip_gun
+@export var gun_scene: PackedScene
 
 func _ready():
+	var current_scene_name = get_tree().current_scene.name
+	print("Current scene name: ", current_scene_name)
+	if current_scene_name == "Forest" && State.has_gun:
+		equip_gun.visible = true
 	_update_inventory()
 	_update_likes()
-
-func _on_play_pressed() -> void:
-	get_tree().change_scene_to_packed(house_scene)
 
 func _on_inventory_pressed() -> void:
 	title_label.text = "Inventory"
@@ -23,6 +25,16 @@ func _on_ray_likes_pressed() -> void:
 	ray_likes.visible = true
 	inventory_items.visible = false
 	_update_likes()
+
+func _on_equip_gun_pressed():
+	var henry = get_tree().current_scene.get_node("Henry")
+
+	if not henry.gun:
+		var gun = gun_scene.instantiate()
+		gun.picked_up = true
+		henry.add_child(gun)
+		henry.gun = gun
+		global_position = henry.global_position + gun.float_offset
 
 func _on_quit_pressed() -> void:
 	queue_free()

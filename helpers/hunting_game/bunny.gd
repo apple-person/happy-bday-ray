@@ -39,12 +39,5 @@ func die() -> void:
 
 func _on_actioned():
 	$dead_body.monitoring = false
-	
-	'''
-	DialogueManager.show_dialogue(
-		"res://dialogue/objects.dialogue",
-		"bunny_body"
-	)'''
-
 	await DialogueManager.dialogue_ended
 	queue_free()

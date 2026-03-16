@@ -19,8 +19,10 @@
 => END 
 
 ~ day_2
+: Time sure does fly.
 : It's Ray's birthday!...
 : I'll go downstairs and give him his things.
+: I hope he likes it.
 => END 
 
 ~ gifts_start
@@ -31,14 +33,47 @@ Ray: Oh, wow... you really didn't have to...
 do State.evaluatePoints()
 
 if State.totalPoints >= 50:
-	Ray: WHAT??? DID YOU REALLY GET THESE FOR ME?? 
-	Ray: THIS IS AWESOME!!
-	Ray: Stew looks great too. You're the best, Henry!
+	=> excited
 elif State.totalPoints >= 25:
-	Ray: Woah. Cool!
-	Ray: I've been wanting one of these for a while now.
-	Ray: 
+	=> taking_care
 else:
-	Ray: Hey, this is cool! 
-	Ray: Thanks for giving me this, Henry.
+	=> normal_idk
+	
+if State.gifts_inventory.has("stew"):
+	=> secret_dialogue
+	
+set cutscene = load("res://scenes/screens/end_screen.tscn")
+do get_tree().change_scene_to_packed(cutscene)
+=> END
+
+~ normal_idk
+Ray: Hey, this is cool! 
+Ray: Thanks for giving me this, Henry.
+Henry: You're welcome.
+=> END
+
+~ taking_care
+Ray: Woah, this is really cool! 
+Ray: I'll be sure to take good care of it.
+Ray: Thanks for this, I like it a lot.
+Henry: No problem!
+=> END
+
+~ excited
+Ray: WHAT??? DID YOU REALLY GET THESE FOR ME?? 
+Ray: THIS IS AWESOME!!
+Henry: Uh -- you think so?
+Ray: Yeah, really!
+Henry: You're welcome, man.
+=> END 
+
+~ secret_dialogue
+Ray: Stew looks great too. You're the best, Henry!
+Henry: I'm glad ya like it.
+Ray: Seems really fresh! How on Earth did you make something so good?
+Henry: ...Ah.
+Henry: Don't worry about it. 
+Ray: ...Sure, whatever ya say.
+Ray: You want to hang out today?
+Henry: On your birthday!? Sure thing.
 => END

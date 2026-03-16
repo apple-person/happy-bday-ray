@@ -4,7 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bu7avuf7o628m" path="res://spritesheets/textures/grass_texture.png" id="2_58aay"]
 [ext_resource type="PackedScene" uid="uid://dui0qf84brbom" path="res://helpers/hunting_game/bunny.tscn" id="2_g0ld8"]
 [ext_resource type="PackedScene" uid="uid://bsy2atfwo0fk7" path="res://helpers/characters/henry.tscn" id="3_g0ld8"]
+[ext_resource type="Texture2D" uid="uid://ce6fg6v6txu3x" path="res://spritesheets/props/tree.png" id="4_0utia"]
+[ext_resource type="Texture2D" uid="uid://c0ndmfj6rspo8" path="res://spritesheets/textures/house_tile.png" id="4_4w0g8"]
 [ext_resource type="PackedScene" uid="uid://ccqh7cajmkwxs" path="res://helpers/misc/transition.tscn" id="5_g0ld8"]
+[ext_resource type="AudioStream" uid="uid://dd33de26t6aj0" path="res://music/Forest_Ambience.mp3" id="7_em3i0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(135.5, 2016)
@@ -12,16 +15,29 @@ size = Vector2(135.5, 2016)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(3013.5, 138)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0utia"]
+size = Vector2(686, 269.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyvg3"]
+size = Vector2(1724, 269.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sadoa"]
+size = Vector2(275, 270)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecg6d"]
+size = Vector2(1017, 270)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_bgcxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4w0g8"]
-size = Vector2(267.5, 272)
+size = Vector2(135.75, 119)
 
-[node name="Node2D" type="Node2D" unique_id=788383138]
+[node name="Forest" type="Node2D" unique_id=788383138]
 script = ExtResource("1_4nbug")
 bunny_scene = ExtResource("2_g0ld8")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1511998550]
+z_index = -2
 offset_left = -1383.0
 offset_top = -969.0
 offset_right = 1407.0
@@ -29,7 +45,26 @@ offset_bottom = 1088.0
 texture = ExtResource("2_58aay")
 stretch_mode = 1
 
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1618248291]
+z_index = -2
+offset_left = -919.0
+offset_top = -880.0
+offset_right = 878.0
+offset_bottom = -368.0
+texture = ExtResource("4_0utia")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1631244534]
+z_index = -1
+offset_left = -1311.0
+offset_top = -895.0
+offset_right = -1183.0
+offset_bottom = -256.0
+texture = ExtResource("4_4w0g8")
+stretch_mode = 1
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1926176448]
+position = Vector2(-1245, -536)
 limit_left = -1300
 limit_top = -900
 limit_right = 1325
@@ -54,9 +89,34 @@ shape = SubResource("RectangleShape2D_0hol4")
 position = Vector2(1402, 61)
 shape = SubResource("RectangleShape2D_epypp")
 
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=2027581777]
+position = Vector2(742, -175.75)
+shape = SubResource("RectangleShape2D_0utia")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1605427183]
+position = Vector2(-17, -685.25)
+shape = SubResource("RectangleShape2D_oyvg3")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=268713003]
+position = Vector2(-786, -41)
+shape = SubResource("RectangleShape2D_sadoa")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=108060116]
+position = Vector2(-790.5, 474)
+shape = SubResource("RectangleShape2D_sadoa")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=1796183017]
+position = Vector2(436, 652)
+shape = SubResource("RectangleShape2D_ecg6d")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D" unique_id=1108496460]
+position = Vector2(719, 319)
+shape = SubResource("RectangleShape2D_ecg6d")
+
 [node name="Node2D" type="Node2D" parent="." unique_id=1478410469]
 
 [node name="Henry" parent="." unique_id=400338076 instance=ExtResource("3_g0ld8")]
+position = Vector2(-1245, -536)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Henry" unique_id=420070484]
 remote_path = NodePath("../../Camera2D")
@@ -65,12 +125,58 @@ remote_path = NodePath("../../Camera2D")
 sprite_frames = SubResource("SpriteFrames_bgcxa")
 
 [node name="bun_spawn_point" type="Marker2D" parent="." unique_id=2089653835]
-position = Vector2(148, 558)
+position = Vector2(-557, -281)
+
+[node name="bun_spawn_point2" type="Marker2D" parent="." unique_id=1464753200]
+position = Vector2(-354, 382)
+
+[node name="bun_spawn_point3" type="Marker2D" parent="." unique_id=1575759997]
+position = Vector2(100, 17)
 
 [node name="to_store_center" parent="." unique_id=858912569 instance=ExtResource("5_g0ld8")]
 target_path = "uid://mumltbjr2v42"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_store_center" unique_id=473738814]
-position = Vector2(-1176.75, -766)
+position = Vector2(-1251.875, -831.5)
 shape = SubResource("RectangleShape2D_4w0g8")
 debug_color = Color(1, 0.6, 0.69803923, 0.41960785)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=536020738]
+stream = ExtResource("7_em3i0")
+autoplay = true
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=506732845]
+z_index = -2
+offset_left = -920.0
+offset_top = -230.0
+offset_right = -663.0
+offset_bottom = 748.0
+texture = ExtResource("4_0utia")
+stretch_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="." unique_id=1195861090]
+z_index = -2
+offset_left = 360.0
+offset_top = -378.0
+offset_right = 1134.0
+offset_bottom = 134.0
+texture = ExtResource("4_0utia")
+stretch_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="." unique_id=1542256336]
+z_index = -2
+offset_left = 193.0
+offset_top = 133.0
+offset_right = 1225.0
+offset_bottom = 645.0
+texture = ExtResource("4_0utia")
+stretch_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="." unique_id=1755887281]
+z_index = -2
+offset_left = -72.0
+offset_top = 466.0
+offset_right = 960.0
+offset_bottom = 978.0
+texture = ExtResource("4_0utia")
+stretch_mode = 1

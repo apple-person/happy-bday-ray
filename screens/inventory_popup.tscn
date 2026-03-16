@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://bygraxpwgv308"]
 
-[ext_resource type="Script" uid="uid://byykhipx86alf" path="res://title_screen.gd" id="1_t27wv"]
+[ext_resource type="Script" uid="uid://brboyxfwypyg" path="res://screens/inventory_popup.gd" id="1_t27wv"]
+[ext_resource type="PackedScene" uid="uid://eg6d3vge07p2" path="res://helpers/hunting_game/gun.tscn" id="2_uyssb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6p8y"]
 bg_color = Color(0.6004515, 0.8140459, 0.99890953, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t27wv"]
-bg_color = Color(1, 0.6874536, 0.7655715, 1)
 
 [node name="TitleScreen" type="Control" unique_id=1952304901]
 z_index = 100
@@ -21,6 +19,7 @@ offset_bottom = 69.91998
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t27wv")
+gun_scene = ExtResource("2_uyssb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=977194462]
 scale = Vector2(0.9, 0.9)
@@ -46,13 +45,14 @@ vertical_alignment = 1
 
 [node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer" unique_id=2040951255]
 offset_left = 608.77783
-offset_top = 876.44446
+offset_top = 870.00006
 offset_right = 1507.7778
 offset_bottom = 1086.4445
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer2" unique_id=72499671]
 layout_mode = 2
 theme_override_constants/separation = 20
+alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer2/VBoxContainer" unique_id=93527601]
 layout_mode = 2
@@ -74,19 +74,33 @@ theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_v6p8y")
 text = "Things Ray Likes"
 
-[node name="quit" type="Button" parent="CanvasLayer/CenterContainer2/VBoxContainer" unique_id=1937327007]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/CenterContainer2/VBoxContainer" unique_id=1379674223]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="equip_gun" type="Button" parent="CanvasLayer/CenterContainer2/VBoxContainer/HBoxContainer3" unique_id=364505600]
+visible = false
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/h_separation = 20
 theme_override_font_sizes/font_size = 55
-theme_override_styles/normal = SubResource("StyleBoxFlat_t27wv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v6p8y")
+text = "Equip Gun"
+
+[node name="quit" type="Button" parent="CanvasLayer/CenterContainer2/VBoxContainer/HBoxContainer3" unique_id=1343093735]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_v6p8y")
 text = "Quit"
 
 [node name="Inventory_Items" type="Label" parent="CanvasLayer" unique_id=638594886]
 offset_left = 640.0
 offset_top = 225.0
 offset_right = 1472.0
-offset_bottom = 884.0
+offset_bottom = 862.2223
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "- inventory
@@ -97,7 +111,7 @@ visible = false
 offset_left = 640.0
 offset_top = 225.0
 offset_right = 1472.0
-offset_bottom = 884.0
+offset_bottom = 863.3334
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "- likes
@@ -105,4 +119,5 @@ text = "- likes
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer2/VBoxContainer/HBoxContainer/inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer2/VBoxContainer/HBoxContainer/ray_likes" to="." method="_on_ray_likes_pressed"]
-[connection signal="pressed" from="CanvasLayer/CenterContainer2/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer2/VBoxContainer/HBoxContainer3/equip_gun" to="." method="_on_equip_gun_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer2/VBoxContainer/HBoxContainer3/quit" to="." method="_on_quit_pressed"]

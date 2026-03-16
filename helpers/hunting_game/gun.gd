@@ -12,17 +12,6 @@ func _ready():
 	button.text = "Drop Gun"
 	button.pressed.connect(unequip)
 	add_child(button)
-
-func pickup():
-	picked_up = true
-	$Area2D.set_deferred("monitoring", true)
-
-	get_parent().remove_child(self)
-	player.add_child(self)
-	
-	player.gun = self
-
-	global_position = player.global_position + float_offset
 	
 func unequip():
 	$Area2D.set_deferred("monitoring", false)
@@ -39,8 +28,3 @@ func shoot():
 	bullet.global_position = $Muzzle.global_position
 	
 	get_tree().call_group("bunnies", "scatter")
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		player = body
-		pickup()

@@ -12,9 +12,10 @@ signal sleep_or_cook
 var bed_made := false
 var hints_found := false 
 var sleep := false 
+var ray := false 
 
 func get_ready_quest():
-	Objectives.set_objective("get ready for the day!", "press space to interact with objects")
+	Objectives.set_objective("get ready for the day!", "make your bed. press space to interact with objects")
 	await ready_for_day
 	
 	Objectives.complete_objective()
@@ -42,9 +43,11 @@ func get_gifts_quest():
 func choice_quest():
 	Objectives.set_objective("missions done!", "head back to bed or make some food in the kitchen.")
 	await sleep_or_cook
+	Objectives.complete_objective()
+	await get_tree().create_timer(3.0).timeout
 	
 	if sleep:
-		normal_ending()
+		ending()
 	else:
 		get_stew_quest()
 	
@@ -54,23 +57,24 @@ func get_stew_quest():
 	await got_carrots
 	Objectives.complete_objective()
 	
-	Objectives.set_objective("i should make some special rabbit stew.", "...but i need my gun.")
+	await get_tree().create_timer(3.0).timeout
+	
 	if not State.has_gun:
+		Objectives.set_objective("hm... special rabbit stew?", "...but i need my gun.")
 		await got_gun
-	Objectives.complete_objective()
+		Objectives.complete_objective()
+	
+	await get_tree().create_timer(3.0).timeout
 	
 	Objectives.set_objective("hunt rabbits", "hunting time!!1! head to the forest!")
 	await got_rabbits
 	Objectives.complete_objective()
 	
 	await get_tree().create_timer(3.0).timeout
-	true_ending()
+	ending()
 
-func true_ending():
-	Objectives.set_objective(" ", " ")
-	await got_carrots
-	Objectives.complete_objective()
-	await get_tree().create_timer(3.0).timeout
+func ending():
+	ray = true 
 	
-func normal_ending():
-	pass
+	var cutscene = load("res://scenes/home/cutscene.tscn")
+	get_tree().change_scene_to_packed(cutscene)

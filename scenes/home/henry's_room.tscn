@@ -9,12 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://ccqh7cajmkwxs" path="res://helpers/misc/transition.tscn" id="6_0yiih"]
 [ext_resource type="Texture2D" uid="uid://bo0o0ifeqehte" path="res://spritesheets/gifts/plants.png" id="8_2cgc6"]
 [ext_resource type="PackedScene" uid="uid://bwybew3h0naix" path="res://helpers/misc/spawn_point.tscn" id="9_35m2g"]
+[ext_resource type="Texture2D" uid="uid://cd7n06ntyg42h" path="res://spritesheets/props/bed_sprite.png" id="10_0rm4e"]
+[ext_resource type="AudioStream" uid="uid://jbc0pnsqhcb1" path="res://music/home.ogg" id="11_g3p6d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obbqb"]
 size = Vector2(124.75, 1229)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjvky"]
 size = Vector2(1225, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3p6d"]
+size = Vector2(154, 86)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b00m1"]
 size = Vector2(288, 99)
@@ -35,7 +40,7 @@ size = Vector2(152, 242.5)
 script = ExtResource("1_2cgc6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=968968780]
-position = Vector2(2117, 299)
+position = Vector2(2113, 295)
 scale = Vector2(2, 2)
 zoom = Vector2(0.56, 0.56)
 limit_left = 1190
@@ -63,6 +68,10 @@ shape = SubResource("RectangleShape2D_kjvky")
 position = Vector2(1125, 101)
 shape = SubResource("RectangleShape2D_obbqb")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1439368506]
+position = Vector2(2009, -169)
+shape = SubResource("RectangleShape2D_g3p6d")
+
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1909337188]
 z_index = -2
 offset_left = 1189.0
@@ -73,7 +82,7 @@ texture = ExtResource("1_1re2s")
 stretch_mode = 1
 
 [node name="Henry" parent="." unique_id=392257279 instance=ExtResource("5_tdbjt")]
-position = Vector2(2012, 352)
+position = Vector2(2008, 348)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Henry" unique_id=343445210]
 position = Vector2(105, -53)
@@ -165,7 +174,7 @@ dialogue_resource = ExtResource("5_k4bsw")
 dialogue_start = "make_bed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bed" unique_id=405207739]
-position = Vector2(2009, 357)
+position = Vector2(2008, 381)
 shape = SubResource("RectangleShape2D_2cgc6")
 debug_color = Color(0, 1, 0.69803923, 0.41960785)
 
@@ -174,3 +183,16 @@ debug_color = Color(0, 1, 0.69803923, 0.41960785)
 [node name="SpawnPoint" parent="SpawnPoints" unique_id=1956845949 instance=ExtResource("9_35m2g")]
 position = Vector2(1560, 823)
 spawn_id = "from_house"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1553440518]
+z_index = -1
+position = Vector2(2009.0002, 384.00003)
+scale = Vector2(1.2109388, 1.2109387)
+texture = ExtResource("10_0rm4e")
+region_enabled = true
+region_rect = Rect2(128, 0, 128, 256)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=948751700]
+stream = ExtResource("11_g3p6d")
+volume_db = -10.0
+autoplay = true

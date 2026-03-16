@@ -5,7 +5,7 @@ var spawn_id = ""
 
 var rabbit_amount: int = 0
 var has_carrots: bool = false
-var has_gun: bool = false
+var has_gun: bool = true
 
 var temp_inventory = []
 var gifts_inventory = []

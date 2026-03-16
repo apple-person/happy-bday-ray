@@ -3,12 +3,13 @@
 Asher: Yooo.
 Asher: Anything you're interested in? 
 
-- The cat plush! [if not State.gifts_inventory.has("cat_plush")]
-	Asher: The cat will be ___
+- The cat plush! [if not State.gifts_inventory.has("cat_plush") && State.gifts_inventory.size() < 2]
+	Asher: Here you go!
 	set State.gifts_inventory.append("cat_plush")
-- The shark plush! [if not State.gifts_inventory.has("haj_plush")]
-	Asher: The shark will be ___
+- The shark plush! [if not State.gifts_inventory.has("haj_plush") && State.gifts_inventory.size() < 2]
+	Asher: Ooh, the shark.
 	Asher: It's a very popular choice.
+	Asher: Here you go!
 	set State.gifts_inventory.append("haj_plush")
 - Nevermind...
 
@@ -36,13 +37,13 @@ if State.gifts_inventory.size() == 2:
 => END
 
 ~ rose_girl
-Girl: I wanna get these plant for my momma. She loooves pink. Aren't the flowers nice?
+Girl: I wanna get this plant for my momma. She loooves pink. Aren't the flowers nice?
 => END
 
 ~ grocery_store
 - I'd like to buy some carrots. [if State.temp_inventory.has("carrots")]
 	set State.has_carrots = true
 	do State.temp_inventory.erase("carrots")
-	#do QuestManager.emit_signal("got_carrots")
+	do QuestManager.emit_signal("got_carrots")
 - Nevermind...
 => END

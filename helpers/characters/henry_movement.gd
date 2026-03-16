@@ -85,7 +85,7 @@ func _physics_process(delta: float) -> void:
 		return
 	if Input.is_action_just_pressed("ui_menu") and not in_menu:
 		in_menu = true
-		var menu = preload("res://inventory_popup.tscn")
+		var menu = preload("res://screens/inventory_popup.tscn")
 		var instance = menu.instantiate()
 		get_tree().current_scene.add_child(instance)
 		instance.tree_exited.connect(_on_menu_closed)

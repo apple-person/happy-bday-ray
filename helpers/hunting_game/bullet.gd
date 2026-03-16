@@ -9,7 +9,7 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("bunnies"):
-		#print("bunny killed")
+		print("bunny killed")
 		body.die() 
 	elif body.is_in_group("world_bounds"):
 		print("body entered")

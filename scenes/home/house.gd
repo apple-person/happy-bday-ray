@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var to_store_center := $to_store_center
-@onready var ray := $ray
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,3 +21,8 @@ func _ready() -> void:
 		await QuestManager.got_hint
 		
 	to_store_center.open_area()
+	
+	if QuestManager.ray:
+		$ray.visible = true
+		$StaticBody2D/CollisionShape2D7.visible = true
+		to_store_center.visible = false 

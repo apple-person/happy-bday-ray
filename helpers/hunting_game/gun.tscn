@@ -1,27 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://eg6d3vge07p2"]
+[gd_scene format=3 uid="uid://eg6d3vge07p2"]
 
 [ext_resource type="Script" uid="uid://htbjqss3stbg" path="res://helpers/hunting_game/gun.gd" id="1_gumul"]
+[ext_resource type="PackedScene" uid="uid://cby40ex4afds3" path="res://helpers/hunting_game/bullet.tscn" id="2_ccbn4"]
 [ext_resource type="Texture2D" uid="uid://cn6mrjy58kqqn" path="res://spritesheets/props/object.png" id="2_pgv1j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccbn4"]
 size = Vector2(123, 37)
 
-[node name="gun" type="Node2D"]
+[node name="gun" type="Node2D" unique_id=1751217966]
 script = ExtResource("1_gumul")
+bullet_scene = ExtResource("2_ccbn4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1339085379]
 position = Vector2(26, 11)
 texture = ExtResource("2_pgv1j")
 region_enabled = true
 region_rect = Rect2(8, 14, 118, 34)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1884561473]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1936597606]
 position = Vector2(25.5, 11.5)
 shape = SubResource("RectangleShape2D_ccbn4")
 
-[node name="Muzzle" type="Marker2D" parent="."]
+[node name="Muzzle" type="Marker2D" parent="." unique_id=774431723]
 position = Vector2(85, 5)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
