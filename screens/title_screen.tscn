@@ -5,9 +5,6 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6p8y"]
 bg_color = Color(0.6004515, 0.8140459, 0.99890953, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ak2if"]
-bg_color = Color(1, 0.6862745, 0.7647059, 1)
-
 [node name="TitleScreen" type="Control" unique_id=1952304901]
 custom_minimum_size = Vector2(1980, 1080)
 layout_mode = 3
@@ -30,7 +27,7 @@ color = Color(0.85517097, 0.99999994, 0.8394258, 1)
 [node name="Label" type="Label" parent="." unique_id=1580588211]
 layout_mode = 0
 offset_right = 1980.0
-offset_bottom = 275.0
+offset_bottom = 417.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 150
 text = "Happy Birthday, Ray!"
@@ -62,14 +59,6 @@ theme_override_font_sizes/font_size = 75
 theme_override_styles/normal = SubResource("StyleBoxFlat_v6p8y")
 text = "CREDITS"
 
-[node name="quit" type="Button" parent="CenterContainer/buttons" unique_id=825974867]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 75
-theme_override_styles/normal = SubResource("StyleBoxFlat_ak2if")
-text = "QUIT
-"
-
 [node name="credits" type="VBoxContainer" parent="CenterContainer" unique_id=821740540]
 visible = false
 layout_mode = 2
@@ -77,8 +66,11 @@ theme_override_constants/separation = 16
 
 [node name="Label" type="Label" parent="CenterContainer/credits" unique_id=790322339]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
-text = "art and code made by apple-person"
+text = "art and code made by apple-person
+music credits in the description!"
+horizontal_alignment = 1
 
 [node name="back" type="Button" parent="CenterContainer/credits" unique_id=1010878288]
 custom_minimum_size = Vector2(307, 0)
@@ -90,5 +82,4 @@ text = "BACK
 
 [connection signal="pressed" from="CenterContainer/buttons/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/buttons/credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="CenterContainer/buttons/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="CenterContainer/credits/back" to="." method="_on_back_pressed"]

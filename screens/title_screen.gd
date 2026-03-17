@@ -11,9 +11,6 @@ func _on_credits_pressed() -> void:
 	buttons_menu.visible = false
 	credits_menu.visible = true
 
-func _on_quit_pressed() -> void:
-	get_tree().quit()
-
 func _on_back_pressed() -> void:
 	buttons_menu.visible = true
 	credits_menu.visible = false

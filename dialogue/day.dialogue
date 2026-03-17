@@ -38,26 +38,19 @@ elif State.totalPoints >= 25:
 	=> taking_care
 else:
 	=> normal_idk
-	
-if State.gifts_inventory.has("stew"):
-	=> secret_dialogue
-	
-set cutscene = load("res://scenes/screens/end_screen.tscn")
-do get_tree().change_scene_to_packed(cutscene)
-=> END
 
 ~ normal_idk
 Ray: Hey, this is cool! 
 Ray: Thanks for giving me this, Henry.
 Henry: You're welcome.
-=> END
+=> final_check
 
 ~ taking_care
 Ray: Woah, this is really cool! 
 Ray: I'll be sure to take good care of it.
 Ray: Thanks for this, I like it a lot.
 Henry: No problem!
-=> END
+=> final_check
 
 ~ excited
 Ray: WHAT??? DID YOU REALLY GET THESE FOR ME?? 
@@ -65,7 +58,7 @@ Ray: THIS IS AWESOME!!
 Henry: Uh -- you think so?
 Ray: Yeah, really!
 Henry: You're welcome, man.
-=> END 
+=> final_check 
 
 ~ secret_dialogue
 Ray: Stew looks great too. You're the best, Henry!
@@ -76,4 +69,12 @@ Henry: Don't worry about it.
 Ray: ...Sure, whatever ya say.
 Ray: You want to hang out today?
 Henry: On your birthday!? Sure thing.
+set QuestManager.yay = true
+=> END
+
+~ final_check
+if State.gifts_inventory.has("stew"):
+	=> secret_dialogue
+set QuestManager.yay = true
+
 => END

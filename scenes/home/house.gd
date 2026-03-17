@@ -24,5 +24,9 @@ func _ready() -> void:
 	
 	if QuestManager.ray:
 		$ray.visible = true
-		$StaticBody2D/CollisionShape2D7.visible = true
+		$StaticBody2D/CollisionShape2D7.disabled = false
+		$ray/Actionable2.monitorable = true
+		$ray/Actionable2.monitoring = true
+		
+	if QuestManager.ray or State.rabbit_amount >= 2:
 		to_store_center.visible = false 

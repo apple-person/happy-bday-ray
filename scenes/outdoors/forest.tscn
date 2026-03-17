@@ -125,16 +125,14 @@ remote_path = NodePath("../../Camera2D")
 sprite_frames = SubResource("SpriteFrames_bgcxa")
 
 [node name="bun_spawn_point" type="Marker2D" parent="." unique_id=2089653835]
-position = Vector2(-557, -281)
+position = Vector2(-518, -273)
 
 [node name="bun_spawn_point2" type="Marker2D" parent="." unique_id=1464753200]
-position = Vector2(-354, 382)
-
-[node name="bun_spawn_point3" type="Marker2D" parent="." unique_id=1575759997]
-position = Vector2(100, 17)
+position = Vector2(166, 277)
 
 [node name="to_store_center" parent="." unique_id=858912569 instance=ExtResource("5_g0ld8")]
 target_path = "uid://mumltbjr2v42"
+target_spawn_id = "from_forest"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_store_center" unique_id=473738814]
 position = Vector2(-1251.875, -831.5)

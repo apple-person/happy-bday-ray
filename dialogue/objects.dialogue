@@ -46,12 +46,14 @@ if State.has_carrots == true && State.rabbit_amount == 2:
 		set State.has_carrots = false 
 		set State.rabbit_amount = 0
 		do State.gifts_inventory.append("stew") 
-	- Eh, nah. => END
+		do QuestManager.emit_signal("got_stew")
+		set QuestManager.alt_end = false
 elseif State.gifts_inventory.size() == 2:
 	: I don't have anything to cook right now, but I can go get some ingredients.
 	: Would you like to cook?
 	- Yes
 		do QuestManager.emit_signal("sleep_or_cook") 
+		set QuestManager.alt_end = true
 	- No => END! 
 else:
 	: Unfortunately, it doesn't look like I have anything to cut right now.
@@ -145,7 +147,7 @@ else:
 => END
 
 ~ go_sleep
-if State.gifts_inventory.size() >= 2:
+if State.gifts_inventory.size() >= 2 && not QuestManager.alt_end:
 	: Would you like to go to sleep?
 	- Yes
 		do QuestManager.sleep = true

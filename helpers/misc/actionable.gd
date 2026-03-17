@@ -16,3 +16,5 @@ func _ready() -> void:
 	
 func _on_dialogue_ended(resource: DialogueResource) -> void:
 	State.can_interact = true 
+	if QuestManager.yay:
+		QuestManager.aaa()

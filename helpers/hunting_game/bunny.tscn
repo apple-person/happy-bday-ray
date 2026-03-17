@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bcpmxgkdw2qag" path="res://helpers/misc/actionable.tscn" id="3_e4qck"]
 [ext_resource type="Resource" uid="uid://b517bctwbt3i0" path="res://dialogue/objects.dialogue" id="4_arcct"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nxphk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_arcct"]
 atlas = ExtResource("2_arcct")
-region = Rect2(0, 0, 128, 128)
+region = Rect2(0, 384, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3dclx"]
 atlas = ExtResource("2_arcct")
@@ -21,6 +21,10 @@ region = Rect2(256, 384, 128, 128)
 atlas = ExtResource("2_arcct")
 region = Rect2(384, 384, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5epga"]
+atlas = ExtResource("2_arcct")
+region = Rect2(0, 128, 128, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ykhn"]
 atlas = ExtResource("2_arcct")
 region = Rect2(128, 128, 128, 128)
@@ -33,6 +37,10 @@ region = Rect2(256, 128, 128, 128)
 atlas = ExtResource("2_arcct")
 region = Rect2(384, 128, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_urbwk"]
+atlas = ExtResource("2_arcct")
+region = Rect2(0, 256, 128, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_q537v"]
 atlas = ExtResource("2_arcct")
 region = Rect2(128, 256, 128, 128)
@@ -44,6 +52,10 @@ region = Rect2(256, 256, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqh06"]
 atlas = ExtResource("2_arcct")
 region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxphk"]
+atlas = ExtResource("2_arcct")
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ijw6l"]
 atlas = ExtResource("2_arcct")
@@ -61,7 +73,7 @@ region = Rect2(384, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nxphk")
+"texture": SubResource("AtlasTexture_arcct")
 }],
 "loop": true,
 "name": &"black_idle",
@@ -83,7 +95,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nxphk")
+"texture": SubResource("AtlasTexture_5epga")
 }],
 "loop": true,
 "name": &"brown_idle",
@@ -105,7 +117,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nxphk")
+"texture": SubResource("AtlasTexture_urbwk")
 }],
 "loop": true,
 "name": &"tan_idle",
@@ -159,7 +171,7 @@ script = ExtResource("1_dvrf6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=253641587]
 sprite_frames = SubResource("SpriteFrames_4ktoa")
-animation = &"tan_run"
+animation = &"white_idle"
 
 [node name="dead_body" parent="." unique_id=34289757 instance=ExtResource("3_e4qck")]
 monitoring = false

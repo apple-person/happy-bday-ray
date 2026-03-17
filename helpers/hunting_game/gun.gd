@@ -11,20 +11,19 @@ func _ready():
 	button = Button.new()
 	button.text = "Drop Gun"
 	button.pressed.connect(unequip)
+	
+	player = get_parent()
 	add_child(button)
 	
 func unequip():
 	$Area2D.set_deferred("monitoring", false)
-
+	player.gun = null 
 	queue_free()
 	
-	player.gun = null
-	player = null
-
 func shoot():
 	var bullet = bullet_scene.instantiate()
 	get_tree().current_scene.add_child(bullet)
 	bullet.add_to_group("bullets")
 	bullet.global_position = $Muzzle.global_position
 	
-	get_tree().call_group("bunnies", "scatter")
+	get_tree().call_group("bunnies", "scatter", true)

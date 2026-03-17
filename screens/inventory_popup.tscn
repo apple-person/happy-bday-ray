@@ -6,6 +6,9 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6p8y"]
 bg_color = Color(0.6004515, 0.8140459, 0.99890953, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7prbb"]
+bg_color = Color(1, 0.7107942, 0.5983297, 1)
+
 [node name="TitleScreen" type="Control" unique_id=1952304901]
 z_index = 100
 layout_mode = 3
@@ -93,7 +96,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 55
-theme_override_styles/normal = SubResource("StyleBoxFlat_v6p8y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7prbb")
 text = "Quit"
 
 [node name="Inventory_Items" type="Label" parent="CanvasLayer" unique_id=638594886]
