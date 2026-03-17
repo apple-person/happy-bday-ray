@@ -109,8 +109,8 @@ func action() -> void:
 	return
 "
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xafmu"]
-radius = 46.458282
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4bpt"]
+size = Vector2(438.50006, 46.71428)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kycn3"]
 size = Vector2(216.5, 101)
@@ -308,8 +308,10 @@ dialogue_resource = ExtResource("6_mq0yv")
 dialogue_start = "kitchen"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cutting_board" unique_id=153542598]
-position = Vector2(371.85715, 178.85712)
-shape = SubResource("CircleShape2D_xafmu")
+position = Vector2(382.4643, 174.92853)
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_q4bpt")
+debug_color = Color(0.9845416, 0, 0.34705535, 0.41960785)
 
 [node name="Henry" parent="." unique_id=639905354 instance=ExtResource("5_ptc3g")]
 position = Vector2(307, 695)
